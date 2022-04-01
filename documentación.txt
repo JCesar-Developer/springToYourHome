@@ -1,0 +1,10 @@
+// --- SPRING --- //
+@controller             //Etiqueta que define un controlador
+    @RequestMapping     //Etiqueta que permite mapear una ruta URL.
+                          Es sobretodo muy utilizado para mapear rutas comunes (Por ejemplo en un CRUD)
+    @GetMapping         //Mapea una ruta con el método GET.
+    @PostMapping        //Mapea una ruta con el método POST.
+
+// --- WHY --- //
+¿Why is it important serialize our entities?
+    -> https://www.baeldung.com/jpa-entities-serializable#:~:text=If%20we%20want%20to%20expose,page%20visits%20to%20our%20website.

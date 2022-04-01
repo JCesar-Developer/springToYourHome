@@ -21,15 +21,54 @@
 	</properties>
 
 	<dependencies>
+		<!-- SPRING BOOT WEB -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<version>2.6.5</version>
 		</dependency>
+		<!-- THYMELEAF -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+			<version>2.6.5</version>
+		</dependency>
+		<!-- - - - - - - - - DATABASES - - - - - - - - -->
+		<!-- SPRING BOOT JPA (HIBERNATE) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<version>2.6.5</version>
+		</dependency>
+		<!-- H2_DATABASE -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- MYSQL_CONNECTOR -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.28</version>
+		</dependency>
+
+		<!-- - - - - - - - - DEV_TOOLS - - - - - - - - -->
+		<!-- SPRING DEV TOOLS -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+			<version>2.6.5</version>
+		</dependency>
+		<!-- JUNIT -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
 	</dependencies>
 
 	<build>

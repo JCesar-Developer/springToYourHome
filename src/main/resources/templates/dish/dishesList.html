@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+</head>
+<body>
+    <h1 th:text="${title}"></h1>
+
+
+    <table>
+        <thead>
+            <th>id</th>
+            <th>nombre</th>
+            <th>categoría</th>
+            <th>etiqueta 1</th>
+            <th>etiqueta 2</th>
+            <th>etiqueta 3</th>
+            <th>descripción</th>
+            <th>ingredientes</th>
+            <th>precio</th>
+            <th>imagen</th>
+            <th>disponible</th>
+        </thead>
+        <tbody>
+            <tr th:each="dish: ${dishes}">
+                <td th:text="${dish.id}"></td>
+                <td th:text="${dish.name}"></td>
+                <td th:text="${dish.category}"></td>
+                <td th:text="${dish.dishLabelOne}"></td>
+                <td th:text="${dish.dishLabelTwo}"></td>
+                <td th:text="${dish.dishLabelThree}"></td>
+                <td th:text="${dish.description}"></td>
+                <td th:text="${dish.ingredients}"></td>
+                <td th:text="${dish.price}"></td>
+                <td th:text="${dish.imagen}"></td>
+                <td th:text="${dish.getAvailable()}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</body>
+</html>
