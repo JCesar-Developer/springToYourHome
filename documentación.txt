@@ -8,3 +8,9 @@
 // --- WHY --- //
 ¿Why is it important serialize our entities?
     -> https://www.baeldung.com/jpa-entities-serializable#:~:text=If%20we%20want%20to%20expose,page%20visits%20to%20our%20website.
+
+
+
+//PENDIENTE:
+- Crear los contenedores del MOCKUP para las diferentes vistas.
+- Importar los datos directamente desde MySQL

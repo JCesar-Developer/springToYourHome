@@ -3,10 +3,43 @@
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <title>losAmos.App</title>
+    <!-- HEAD -->
+    <div th:replace="layout/head :: head"></div>
+    <!-- /HEAD -->
 </head>
 <body>
-    <h1>Bienvenido al INDEX</h1>
+    <!-- HEADER -->
+    <div th:replace="layout/header :: appHeader"></div>
+    <!-- /HEADER -->
+
+    <main>
+        <!-- CARROUSEL -->
+        <div class="container-fluid" style="height: 250px; border: solid brown;">
+            <h5 style="text-align: center">CARROUSEL PLATOS DEL DÍA</h5>
+        </div> <!-- /CARROUSEL -->
+
+        <!-- DISHES -->
+        <div class="container-fluid" style="border: solid blue">
+
+            <!-- DISH-DEFINITIONS -->
+            <div class="row" style="border: solid lightslategray">
+                <p>Courses type name | explanation of courses</p>
+            </div> <!-- /DISH-DEFINITIONS -->
+
+            <!-- DISHES CONTAINER -->
+            <div class="row" style="border: solid purple">
+                <!-- TODO: BUCLE EACH -->
+                <div style="border: solid darkred; height: 200px; width: 200px">
+                    <h5 class="text-center align-middle">plates</h5>
+                </div>
+            </div> <!-- /DISHES CONTAINER -->
+
+        </div> <!-- /DISHES -->
+
+    </main>
+
+    <!-- FOOTER -->
+    <div th:replace="layout/footer :: appFooter"></div>
+    <!-- /FOOTER -->
 </body>
 </html>

@@ -16,6 +16,9 @@ public class RoutesManager {
      * @return
      */
     @GetMapping(value = "/")
-    public String getIndex(Model model) { return "index"; }
+    public String getIndex(Model model) {
+        model.addAttribute("title", "index");
+        return "index";
+    }
 
 }

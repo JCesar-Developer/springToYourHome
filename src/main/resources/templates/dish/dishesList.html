@@ -3,29 +3,35 @@
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title th:text="${title}"></title>
+<!-- HEAD -->
+<div th:replace="layout/head :: head"></div>
+<!-- /HEAD -->
 </head>
 <body>
+<!-- HEADER -->
+<div th:replace="layout/header :: appHeader"></div>
+<!-- /HEADER -->
+
+<main style="border: solid orange; height: 500px;">
     <h1 th:text="${title}"></h1>
 
-
-    <table>
-        <thead>
-            <th>id</th>
-            <th>nombre</th>
-            <th>categoría</th>
-            <th>etiqueta 1</th>
-            <th>etiqueta 2</th>
-            <th>etiqueta 3</th>
-            <th>descripción</th>
-            <th>ingredientes</th>
-            <th>precio</th>
-            <th>imagen</th>
-            <th>disponible</th>
+    <table class="table">
+        <thead style="border: solid lightgrey">
+            <th scope="col">id</th>
+            <th scope="col">nombre</th>
+            <th scope="col">categoría</th>
+            <th scope="col">etiqueta 1</th>
+            <th scope="col">etiqueta 2</th>
+            <th scope="col">etiqueta 3</th>
+            <th scope="col">descripción</th>
+            <th scope="col">ingredientes</th>
+            <th scope="col">precio</th>
+            <th scope="col">imagen</th>
+            <th scope="col">disponible</th>
+            <th scope="col">Actions</th>
         </thead>
         <tbody>
-            <tr th:each="dish: ${dishes}">
+            <tr scope="row" th:each="dish: ${dishes}" style="border: solid brown">
                 <td th:text="${dish.id}"></td>
                 <td th:text="${dish.name}"></td>
                 <td th:text="${dish.category}"></td>
@@ -35,12 +41,20 @@
                 <td th:text="${dish.description}"></td>
                 <td th:text="${dish.ingredients}"></td>
                 <td th:text="${dish.price}"></td>
-                <td th:text="${dish.imagen}"></td>
+                <td th:text="${dish.getImagen()}"></td>
                 <td th:text="${dish.getAvailable()}"></td>
+                <td class="row p-0">
+                    <p class="col" style="border: solid green; width: 40px; height: 40px;">B1</p>
+                    <p class="col" style="border: solid blue; width: 40px; height: 40px;">B2</p>
+                    <p class="col" style="border: solid red; width: 40px; height: 40px;">B3</p>
+                </td>
             </tr>
         </tbody>
     </table>
+</main>
 
-
+<!-- FOOTER -->
+<div th:replace="layout/footer :: appFooter"></div>
+<!-- /FOOTER -->
 </body>
 </html>
