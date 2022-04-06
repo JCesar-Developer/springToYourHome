@@ -22,7 +22,7 @@ public class Dish implements Serializable {
     private Long    dishLabelThree;
     private String  description;
     private String  ingredients;
-    private Long    price;
+    private Float   price;
     private String  imagen;
     private Boolean available;
 
@@ -93,11 +93,11 @@ public class Dish implements Serializable {
         this.ingredients = ingredients;
     }
 
-    public Long getPrice() {
+    public Float getPrice() {
         return price;
     }
 
-    public void setPrice(Long price) {
+    public void setPrice(Float price) {
         this.price = price;
     }
 

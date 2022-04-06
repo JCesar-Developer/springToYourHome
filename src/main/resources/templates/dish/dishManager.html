@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="www.thymeleaf.org">
 <head>
 <!-- HEAD -->
 <div th:replace="layout/head :: head"></div>
@@ -12,11 +12,24 @@
 <div th:replace="layout/header :: appHeader"></div>
 <!-- /HEADER -->
 
+<!-- MAIN -->
 <main style="border: solid orange; height: 500px;">
     <h1 th:text="${title}"></h1>
 
-    <table class="table">
-        <thead style="border: solid lightgrey">
+    <!-- ADD BUTTON -->
+    <div>
+        <a href="/dishManager/save/0" class="btn btn-primary">Agregar nuevo plato</a>
+    </div>
+    <!-- END ADD BUTTON -->
+
+    <!-- CASE1: WHEN THERE'RE NOT DISHES -->
+    <h2 th:if="${dishes.isEmpty()}">Aún no hay platos agregados</h2>
+    <!-- CASE2: WHEN THERE ARE DISHES -->
+    <div th:if="${!dishes.isEmpty()}">
+
+        <!-- DISHES TABLE -->
+        <table class="table">
+            <thead style="border: solid lightgrey">
             <th scope="col">id</th>
             <th scope="col">nombre</th>
             <th scope="col">categoría</th>
@@ -28,9 +41,10 @@
             <th scope="col">precio</th>
             <th scope="col">imagen</th>
             <th scope="col">disponible</th>
-            <th scope="col">Actions</th>
-        </thead>
-        <tbody>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            </thead>
+            <tbody>
             <tr scope="row" th:each="dish: ${dishes}" style="border: solid brown">
                 <td th:text="${dish.id}"></td>
                 <td th:text="${dish.name}"></td>
@@ -43,18 +57,18 @@
                 <td th:text="${dish.price}"></td>
                 <td th:text="${dish.getImagen()}"></td>
                 <td th:text="${dish.getAvailable()}"></td>
-                <td class="row p-0">
-                    <p class="col" style="border: solid green; width: 40px; height: 40px;">B1</p>
-                    <p class="col" style="border: solid blue; width: 40px; height: 40px;">B2</p>
-                    <p class="col" style="border: solid red; width: 40px; height: 40px;">B3</p>
-                </td>
+                <td><a th:href="@{/dishManager/save/{id}(id=${dish.id})}">Editar</a></td>
+                <td><a th:href="@{/dishManager/delete/{id}(id=${dish.id})}">Eliminar</a></td>
             </tr>
-        </tbody>
-    </table>
-</main>
+            </tbody>
+        </table> <!-- END DISHES TABLE -->
+
+    </div> <!-- END CASE2: WHEN THERE ARE DISHES -->
+
+</main> <!-- END MAIN -->
 
 <!-- FOOTER -->
 <div th:replace="layout/footer :: appFooter"></div>
-<!-- /FOOTER -->
+<!-- END FOOTER -->
 </body>
 </html>

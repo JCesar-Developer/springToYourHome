@@ -1,5 +1,8 @@
 package com.losAmos.demoLosAmos.controllers;
 
+import com.losAmos.demoLosAmos.models.services.GenericServiceAPI;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,8 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/")
-//Defining the root route.
-public class RoutesManager {
+public class IndexController {
+
+    @Autowired
+    @Qualifier("dishServiceImpl")
+    private GenericServiceAPI dishAPI;
 
     /**
      * Routing INDEX URL.
@@ -18,7 +24,10 @@ public class RoutesManager {
     @GetMapping(value = "/")
     public String getIndex(Model model) {
         model.addAttribute("title", "index");
+        model.addAttribute("dishes", dishAPI.getAll());
         return "index";
     }
+
+
 
 }

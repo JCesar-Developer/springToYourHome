@@ -21,7 +21,7 @@ public abstract class GenericServiceImpl<T, ID extends Serializable> implements 
     }
 
     @Override
-    public T get(ID id) {
+    public T getOne(ID id) {
         Optional<T> obj = getDao().findById(id);
         if( obj.isPresent() ) {
             return obj.get();

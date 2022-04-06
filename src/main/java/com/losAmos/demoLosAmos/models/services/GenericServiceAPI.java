@@ -5,9 +5,9 @@ import java.util.List;
 
 public interface GenericServiceAPI <T, ID extends Serializable> {
 
-    T save (T entity);
-    void delete (ID id);
-    T get(ID id);
+    T       save (T entity);
+    void    delete (ID id);
+    T       getOne(ID id);
     List<T> getAll();
 
 }

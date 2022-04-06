@@ -10,7 +10,25 @@
     -> https://www.baeldung.com/jpa-entities-serializable#:~:text=If%20we%20want%20to%20expose,page%20visits%20to%20our%20website.
 
 
+=============
+ PRODUCTO 2:
+=============
+//PENDIENTE NECESARIO:
+- FALTA: Mejorar las vistas (ADRI)
+- FALTA: resolver todas las validaciones del crud DISH. (JULIO[Lado controlador] y ADRI[Lado modelo])
+- FALTA: Empezar la documentación a presentar (JULIO)
 
-//PENDIENTE:
-- Crear los contenedores del MOCKUP para las diferentes vistas.
-- Importar los datos directamente desde MySQL
+//PENDIENTE OPCIONAL:
+- FALTA: Crear varios registros para la BBDD MySQL. (JULIO)
+- FALTA: Importar los datos directamente desde MySQL. (JULIO)
+
+- FALTA: Crear las vistas para mostrar los diferentes MENUS. (DISCUTIR)
+- FALTA: Crear los modelos y controladores para interactuar con los MENUS. (DISCUTIR)
+
+
+=============
+ PRODUCTO 3:
+=============
+- Resolver modelos para USUARIO y ADMIN (JOSE)
+- Resolver controladores para USUARIO y ADMIN (JOSE)
+- Resolver la funcionalidad del LOGIN. (JOSE)

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="www.thymeleaf.org">
 <head>
     <!-- HEAD -->
     <div th:replace="layout/head :: head"></div>
@@ -28,10 +28,17 @@
 
             <!-- DISHES CONTAINER -->
             <div class="row" style="border: solid purple">
-                <!-- TODO: BUCLE EACH -->
-                <div style="border: solid darkred; height: 200px; width: 200px">
-                    <h5 class="text-center align-middle">plates</h5>
-                </div>
+
+                <!-- FOR EACH DISH -->
+                <div th:each="dish: ${dishes}" style="border: solid darkred; height: 200px; width: 200px">
+                    <h4 th:text="${dish.name}"></h4>
+                    <ul>
+                        <li th:text="${dish.description}"></li>
+                        <li th:text="${dish.ingredients}"></li>
+                        <li th:text="${dish.price}"></li>
+                    </ul>
+                </div> <!-- END FOR EACH DISH -->
+
             </div> <!-- /DISHES CONTAINER -->
 
         </div> <!-- /DISHES -->
