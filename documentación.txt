@@ -5,6 +5,16 @@
     @GetMapping         //Mapea una ruta con el método GET.
     @PostMapping        //Mapea una ruta con el método POST.
 
+----------------------------------------------
+--------------- BEANS VALIDATE ---------------
+url: https://www.baeldung.com/javax-validation
+----------------------------------------------
+    @NotEmpty               -> Aplicar a Strings.
+    @NotNull                -> Aplicar a no Strings.
+    @Email                  -> Para que el formato del correo sea el correcto.
+    @size(min= , max= )     -> Define el tamaño mínimo o máximo de un atributo.
+    @
+
 // --- WHY --- //
 ¿Why is it important serialize our entities?
     -> https://www.baeldung.com/jpa-entities-serializable#:~:text=If%20we%20want%20to%20expose,page%20visits%20to%20our%20website.
@@ -16,6 +26,8 @@
 //PENDIENTE NECESARIO:
 - FALTA: Mejorar las vistas (ADRI)
 - FALTA: resolver todas las validaciones del crud DISH. (JULIO[Lado controlador] y ADRI[Lado modelo])
+    - Validaciones necesarias:
+
 - FALTA: Empezar la documentación a presentar (JULIO)
 
 //PENDIENTE OPCIONAL:

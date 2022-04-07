@@ -58,7 +58,10 @@
                 <td th:text="${dish.getImagen()}"></td>
                 <td th:text="${dish.getAvailable()}"></td>
                 <td><a th:href="@{/dishManager/save/{id}(id=${dish.id})}">Editar</a></td>
-                <td><a th:href="@{/dishManager/delete/{id}(id=${dish.id})}">Eliminar</a></td>
+                <td>
+                    <a th:href="@{/dishManager/delete/{id}(id=${dish.id})}"
+                       onclick="return confirm('¿Estás seguro, que quieres eliminar esté plato?');">Eliminar</a>
+                </td>
             </tr>
             </tbody>
         </table> <!-- END DISHES TABLE -->

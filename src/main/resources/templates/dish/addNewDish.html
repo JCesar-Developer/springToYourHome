@@ -20,40 +20,75 @@
 
                 <!-- 0. ID -->
                 <input type="hidden" th:field="*{id}" name="id" id="id">
+
                 <!-- 1. NAME -->
-                <label>Nombre</label>
-                <input type="text" class="form-control" th:field="*{name}" name="name">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Nombre</label>
+                    <input type="text" th:field="*{name}" class="form-control" th:errorClass="'form-control alert-danger'">
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></small>
+                </div>
+
                 <!-- 2. CATEGORY -->
                 <!-- TODO: CAMBIAR POR UN COMBO-BOX -->
-                <label>Categoría</label>
-                <input type="number" class="form-control" th:field="*{category}"  name="category">
+                <div class="form-group row">
+                    <label>Categoría</label>
+                    <input type="number" th:field="*{category}" class="form-control" th:errorClass="'form-control alert-danger'">
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('category')}" th:errors="*{category}"></small>
+                </div>
+
                 <!-- 3. DISH LABEL ONE -->
-                <label>Etiqueta 1</label>
-                <input type="number" class="form-control" th:field="*{dishLabelOne}"  name="dish_label_one">
+                <div class="form-group row">
+                    <label>Etiqueta 1</label>
+                    <input type="number" th:field="*{dishLabelOne}" class="form-control" th:errorClass="'form-control alert-danger'">
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('dishLabelOne')}" th:errors="*{dishLabelOne}"></small>
+                </div>
+
                 <!-- 4. DISH LABEL TWO -->
-                <label>Etiqueta 2</label>
-                <input type="number" class="form-control" th:field="*{dishLabelTwo}"  name="dish_label_two">
+                <div class="form-group row">
+                    <label>Etiqueta 2</label>
+                    <input type="number" th:field="*{dishLabelTwo}" class="form-control">
+                </div>
+
                 <!-- 5. DISH LABEL THREE -->
-                <label>Etiqueta 3</label>
-                <input type="number" class="form-control" th:field="*{dishLabelThree}"  name="dish_label_three">
+                <div class="form-group row">
+                    <label>Etiqueta 3</label>
+                    <input type="number" th:field="*{dishLabelThree}" class="form-control">
+                </div>
+
                 <!-- 6. DESCRIPTION -->
-                <label>Descripción del plato</label>
-                <input type="text" class="form-control" th:field="*{description}"  name="description">
+                <div class="form-group row">
+                    <label>Descripción del plato</label>
+                    <input type="text" th:field="*{description}" class="form-control" th:errorClass="'form-control alert-danger'">
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></small>
+                </div>
+
                 <!-- 7. INGREDIENTS -->
-                <label>Ingredientes</label>
-                <input type="text" class="form-control" th:field="*{ingredients}"  name="ingredients">
+                <div class="form-group row">
+                    <label>Ingredientes</label>
+                    <input type="text" th:field="*{ingredients}" class="form-control" th:errorClass="'form-control alert-danger'">
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('ingredients')}" th:errors="*{ingredients}"></small>
+                </div>
+
                 <!-- 8. PRICE -->
-                <label>Precio</label>
-                <input type="number" step="0.01" class="form-control" th:field="*{price}"  name="price">
+                <div class="form-group row">
+                    <label>Precio</label>
+                    <input type="number" step="0.01" th:field="*{price}" class="form-control" th:errorClass="'form-control alert-danger'">
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></small>
+                </div>
+
                 <!-- 9. IMAGEN -->
-                <label>Adjuntar imagen del plato</label>
-                <input type="text" class="form-control" th:field="*{imagen}"  name="imagen">
+                <div class="form-group row">
+                    <label>Adjuntar imagen del plato</label>
+                    <input type="text" th:field="*{imagen}" class="form-control">
+                </div>
                 <br>
+
                 <!-- 10. AVAILABLE -->
                 <label>¿Disponible?</label>
-                <input type="checkbox" checked="checked" th:field="*{available}"  name="available">
+                <input type="checkbox" checked="checked" th:field="*{available}">
                 <br>
                 <br>
+
                 <!-- SUBMIT BUTTON -->
                 <button type="submit" class="btn btn-success">Guardar</button>
                 <!-- END SUBMIT BUTTON -->

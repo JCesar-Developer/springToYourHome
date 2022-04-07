@@ -3,18 +3,24 @@ package com.losAmos.demoLosAmos.controllers;
 import com.losAmos.demoLosAmos.models.entity.Dish;
 import com.losAmos.demoLosAmos.models.impl.DishServiceImpl;
 import com.losAmos.demoLosAmos.models.services.GenericServiceAPI;
+import com.losAmos.demoLosAmos.models.services.GenericServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import javax.validation.Valid;
 
 @Controller
 public class DishController {
 
     // -------------------------- ATRIBUTES -------------------------- //
+
     @Autowired
     @Qualifier("dishServiceImpl")
     private GenericServiceAPI dishAPI;
@@ -54,7 +60,13 @@ public class DishController {
      * @return shows view: "dishManager"
      */
     @PostMapping("/dishManager/save")
-    public String saveNewDish(Dish dish, Model model) {
+    public String saveDish(@Valid Dish dish, BindingResult result, Model model) {
+        //VALIDATION
+        if( result.hasErrors() ){
+            return "dish/addNewDish";
+        }
+        //END VALIDATION
+
         dishAPI.save(dish);
         return "redirect:/dishManager";
     }

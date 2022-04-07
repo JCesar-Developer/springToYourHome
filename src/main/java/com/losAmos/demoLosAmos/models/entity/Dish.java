@@ -1,6 +1,12 @@
 package com.losAmos.demoLosAmos.models.entity;
+
+
 import javax.persistence.*;
 import java.io.Serializable;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name="dishes")
@@ -12,18 +18,35 @@ public class Dish implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long    id;
+
+    @NotBlank
+    @Size(min=4, max=45)
     private String  name;
+
+    @NotNull
     private Long    category;
+
+    @NotNull
     @Column(name="dish_label_one")
     private Long    dishLabelOne;
+
     @Column(name="dish_label_two")
     private Long    dishLabelTwo;
+
     @Column(name="dish_label_three")
     private Long    dishLabelThree;
+
+    @NotBlank
     private String  description;
+
+    @NotBlank
     private String  ingredients;
+
+    @NotNull
     private Float   price;
+
     private String  imagen;
+
     private Boolean available;
 
     // ------------------------- //
