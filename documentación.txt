@@ -13,7 +13,6 @@ url: https://www.baeldung.com/javax-validation
     @NotNull                -> Aplicar a no Strings.
     @Email                  -> Para que el formato del correo sea el correcto.
     @size(min= , max= )     -> Define el tamaño mínimo o máximo de un atributo.
-    @
 
 // --- WHY --- //
 ¿Why is it important serialize our entities?
@@ -28,12 +27,9 @@ url: https://www.baeldung.com/javax-validation
 - FALTA: resolver todas las validaciones del crud DISH. (JULIO[Lado controlador] y ADRI[Lado modelo])
     - Validaciones necesarias:
 
-- FALTA: Empezar la documentación a presentar (JULIO)
+- FALTA: Corregir el UPDATE para las imagenes de cada plato (JULIO)
 
 //PENDIENTE OPCIONAL:
-- FALTA: Crear varios registros para la BBDD MySQL. (JULIO)
-- FALTA: Importar los datos directamente desde MySQL. (JULIO)
-
 - FALTA: Crear las vistas para mostrar los diferentes MENUS. (DISCUTIR)
 - FALTA: Crear los modelos y controladores para interactuar con los MENUS. (DISCUTIR)
 

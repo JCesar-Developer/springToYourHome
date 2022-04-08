@@ -15,7 +15,8 @@
 <!-- MAIN -->
 <main>
     <div class="container">
-        <form action="#" th:action="@{/dishManager/save}" th:object="${dish}" method="POST">
+        <form action="#" th:action="@{/dishManager/save}" th:object="${dish}"
+              method="POST" enctype="multipart/form-data">
             <div class="form-group">
 
                 <!-- 0. ID -->
@@ -76,10 +77,10 @@
                     <small class="form-text text-danger" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></small>
                 </div>
 
-                <!-- 9. IMAGEN -->
+                <!-- 9. IMAGE -->
                 <div class="form-group row">
                     <label>Adjuntar imagen del plato</label>
-                    <input type="text" th:field="*{imagen}" class="form-control">
+                    <input type="file" name="file" class="form-control">
                 </div>
                 <br>
 

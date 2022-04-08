@@ -45,7 +45,7 @@ public class Dish implements Serializable {
     @NotNull
     private Float   price;
 
-    private String  imagen;
+    private String  image;
 
     private Boolean available;
 
@@ -124,12 +124,12 @@ public class Dish implements Serializable {
         this.price = price;
     }
 
-    public String getImagen() {
-        return imagen;
+    public String getImage() {
+        return image;
     }
 
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public Boolean getAvailable() {

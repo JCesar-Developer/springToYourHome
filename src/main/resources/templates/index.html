@@ -30,11 +30,13 @@
             <div class="row" style="border: solid purple">
 
                 <!-- FOR EACH DISH -->
-                <div th:each="dish: ${dishes}" style="border: solid darkred; height: 200px; width: 200px">
+                <div th:each="dish: ${dishes}" th:if="${dish.available}" style="border: solid darkred; height: 200px; width: 200px">
+                    <img class="img-thumbnail"
+                         th:src="@{'/images/' + ${dish.getImage()}}"
+                         th:alt="${dish.image}"
+                         style="max-width: 100%;"/>
                     <h4 th:text="${dish.name}"></h4>
-                    <ul>
-                        <li th:text="${dish.price}"></li>
-                    </ul>
+                    <h2 th:text="${dish.price}"></h2>
                 </div> <!-- END FOR EACH DISH -->
 
             </div> <!-- /DISHES CONTAINER -->

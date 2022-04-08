@@ -55,7 +55,7 @@
                 <td th:text="${dish.description}"></td>
                 <td th:text="${dish.ingredients}"></td>
                 <td th:text="${dish.price}"></td>
-                <td th:text="${dish.getImagen()}"></td>
+                <td th:text="${dish.getImage()}"></td>
                 <td th:text="${dish.getAvailable()}"></td>
                 <td><a th:href="@{/dishManager/save/{id}(id=${dish.id})}">Editar</a></td>
                 <td>
