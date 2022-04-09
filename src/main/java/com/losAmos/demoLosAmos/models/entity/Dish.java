@@ -1,12 +1,8 @@
 package com.losAmos.demoLosAmos.models.entity;
 
-
 import javax.persistence.*;
 import java.io.Serializable;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.*;
 
 @Entity
 @Table(name="dishes")
@@ -23,10 +19,10 @@ public class Dish implements Serializable {
     @Size(min=4, max=45)
     private String  name;
 
-    @NotNull
+    @Positive
     private Long    category;
 
-    @NotNull
+    @Positive
     @Column(name="dish_label_one")
     private Long    dishLabelOne;
 
@@ -46,6 +42,8 @@ public class Dish implements Serializable {
     private Float   price;
 
     private String  image;
+
+    private boolean hasImg;
 
     private Boolean available;
 

@@ -24,36 +24,47 @@
 
                 <!-- 1. NAME -->
                 <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Nombre</label>
+                    <label>Nombre</label>
                     <input type="text" th:field="*{name}" class="form-control" th:errorClass="'form-control alert-danger'">
                     <small class="form-text text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></small>
                 </div>
 
                 <!-- 2. CATEGORY -->
-                <!-- TODO: CAMBIAR POR UN COMBO-BOX -->
                 <div class="form-group row">
                     <label>Categoría</label>
-                    <input type="number" th:field="*{category}" class="form-control" th:errorClass="'form-control alert-danger'">
+                    <select th:field="*{category}" class="form-control" th:errorClass="'form-control alert-danger'">
+                        <option value="-1">--- seleccione categoría ---</option>
+                        <option th:each="category: ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+                    </select>
                     <small class="form-text text-danger" th:if="${#fields.hasErrors('category')}" th:errors="*{category}"></small>
                 </div>
 
                 <!-- 3. DISH LABEL ONE -->
                 <div class="form-group row">
                     <label>Etiqueta 1</label>
-                    <input type="number" th:field="*{dishLabelOne}" class="form-control" th:errorClass="'form-control alert-danger'">
+                    <select th:field="*{dishLabelOne}" class="form-control" th:errorClass="'form-control alert-danger'">
+                        <option value="-1">--- seleccione la primera etiqueta ---</option>
+                        <option th:each="label: ${labels}" th:if="${label.id > 0}" th:value="${label.id}" th:text="${label.name}"></option>
+                    </select>
                     <small class="form-text text-danger" th:if="${#fields.hasErrors('dishLabelOne')}" th:errors="*{dishLabelOne}"></small>
                 </div>
 
                 <!-- 4. DISH LABEL TWO -->
                 <div class="form-group row">
                     <label>Etiqueta 2</label>
-                    <input type="number" th:field="*{dishLabelTwo}" class="form-control">
+                    <select th:field="*{dishLabelTwo}" class="form-control">
+                        <option value="0">--- seleccione la segunda etiqueta (opcional) ---</option>
+                        <option th:each="label: ${labels}" th:if="${label.id > 0}" th:value="${label.id}" th:text="${label.name}"></option>
+                    </select>
                 </div>
 
                 <!-- 5. DISH LABEL THREE -->
                 <div class="form-group row">
                     <label>Etiqueta 3</label>
-                    <input type="number" th:field="*{dishLabelThree}" class="form-control">
+                    <select th:field="*{dishLabelThree}" class="form-control">
+                        <option value="0">--- seleccione la tercera etiqueta (opcional) ---</option>
+                        <option th:each="label: ${labels}" th:if="${label.id > 0}" th:value="${label.id}" th:text="${label.name}"></option>
+                    </select>
                 </div>
 
                 <!-- 6. DESCRIPTION -->
@@ -80,8 +91,9 @@
                 <!-- 9. IMAGE -->
                 <div class="form-group row">
                     <label>Adjuntar imagen del plato</label>
-                    <input type="file" name="file" class="form-control">
+                    <input type="file" name="file" id="file" class="form-control">
                 </div>
+                <p th:text="${dish.image}"></p>
                 <br>
 
                 <!-- 10. AVAILABLE -->

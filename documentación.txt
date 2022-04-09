@@ -27,7 +27,13 @@ url: https://www.baeldung.com/javax-validation
 - FALTA: resolver todas las validaciones del crud DISH. (JULIO[Lado controlador] y ADRI[Lado modelo])
     - Validaciones necesarias:
 
-- FALTA: Corregir el UPDATE para las imagenes de cada plato (JULIO)
+- FALTA: Corregir el UPDATE para las imagenes de cada plato (JULIO) -> No se puede.
+         Validador de imagenes                                      -> No se puede.
+         2 o más imagenes                                           -> No se puede.
+         Mensaje de alerta, de se ha creado o se ha eliminado o se ha modificado satisfactoriamente
+
+    PASO 1: Puedo crear y imagen está vacio. OK
+    PASO 2: Puedo guardar y cre
 
 //PENDIENTE OPCIONAL:
 - FALTA: Crear las vistas para mostrar los diferentes MENUS. (DISCUTIR)
