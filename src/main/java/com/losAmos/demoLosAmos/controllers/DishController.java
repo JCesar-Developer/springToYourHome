@@ -21,11 +21,9 @@ import java.nio.file.Paths;
 public class DishController {
 
     // -------------------------- ATRIBUTES -------------------------- //
-
     @Autowired
     @Qualifier("dishServiceImpl")
     private GenericServiceAPI dishAPI;
-
 
     @Autowired
     @Qualifier("categoryServiceImpl")
