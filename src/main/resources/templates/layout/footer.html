@@ -1,14 +1,43 @@
 <html>
     <body>
-        <div id="footer" th:fragment="appFooter">
-
-            <div class="container-fluid text-center" style="border: solid red">
-                <p>ASISTENCIA - FAQ - POLITICA DE PRIVACIDAD</p>
+        <!-- FOOTER MENU -->
+        <div id="footer" class="row footer rounded-top shadow-sm pt-3 m-0 mt-3" th:fragment="appFooter">
+            <!-- FOOTER LINKS -->
+            <div class="row justify-content-center text-center p-0 m-0">
+                <div class="col-auto">
+                    <a class="footer__menu-link" href="#">Asistencia</a>
+                </div>
+                <div class="col-auto">
+                    <a class="footer__menu-link" href="#">FAQ</a>
+                </div>
+                <div class="col-auto">
+                    <a class="footer__menu-link" href="#">Política de Privacidad</a>
+                </div>
+                <div class="col-auto">
+                    <a class="footer__menu-link" href="#">Términos de Servicio</a>
+                </div>
             </div>
-
+            <!-- FOOTER TEXT -->
+            <div class="row justify-content-center pt-1 m-0">
+                <div class="col text-center footer__menu-text">
+                    <h6>© 2022/2023 Los Amos del Backend. Todos los derechos reservados.</h6>
+                </div>
+            </div>
             <!-- SCRIPTS -->
+            <script type="text/javascript" src="/js/scripts.js"></script>
+            <!-- FONT AWESOME -->
+            <script type="text/javascript" src="https://kit.fontawesome.com/b2a006d597.js" crossorigin="anonymous"></script>
+            <!-- JSQUERY -->
+            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
             <!-- BOOTSTRAP JS-->
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+            <script>
+                $(document).ready(function(){
+                    $('.carousel').carousel({
+                        interval: 4000
+                    })
+                });
+            </script>
         </div>
     </body>
 </html>

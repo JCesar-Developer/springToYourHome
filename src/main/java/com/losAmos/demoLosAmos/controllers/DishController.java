@@ -35,7 +35,7 @@ public class DishController {
      */
     @GetMapping(value = "/dishManager")
     public String showDishesList(Model model) {
-        model.addAttribute("title", "Lista de platos");
+        model.addAttribute("title", "Panel de Administración");
         model.addAttribute("dishes", dishAPI.getAll());
         return "dish/dishManager";
     }

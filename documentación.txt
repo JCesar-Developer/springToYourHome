@@ -1,5 +1,5 @@
 // --- SPRING --- //
-@controller             //Etiqueta que define un controlador
+    @controller         //Etiqueta que define un controlador
     @RequestMapping     //Etiqueta que permite mapear una ruta URL.
                           Es sobretodo muy utilizado para mapear rutas comunes (Por ejemplo en un CRUD)
     @GetMapping         //Mapea una ruta con el método GET.

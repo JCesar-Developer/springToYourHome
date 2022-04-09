@@ -8,99 +8,110 @@
     <!-- /HEAD -->
 </head>
 <body>
-<!-- HEADER -->
-<div th:replace="layout/header :: appHeader"></div>
-<!-- /HEADER -->
+    <!-- HEADER -->
+    <div th:replace="layout/header :: appHeader"></div>
+    <!-- /HEADER -->
 
-<!-- MAIN -->
-<main>
-    <div class="container">
-        <form action="#" th:action="@{/dishManager/save}" th:object="${dish}"
-              method="POST" enctype="multipart/form-data">
-            <div class="form-group">
+    <!-- MAIN -->
+    <main>
+        <div class="container">
+            <form action="#" th:action="@{/dishManager/save}" th:object="${dish}"
+                  method="POST" enctype="multipart/form-data">
+                <div class="form-group">
 
-                <!-- 0. ID -->
-                <input type="hidden" th:field="*{id}" name="id" id="id">
+                    <!-- 0. ID -->
+                    <input type="hidden" th:field="*{id}" name="id" id="id">
 
-                <!-- 1. NAME -->
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Nombre</label>
-                    <input type="text" th:field="*{name}" class="form-control" th:errorClass="'form-control alert-danger'">
-                    <small class="form-text text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></small>
-                </div>
+                    <!-- 1. NAME -->
+                    <div class="form-group row">
+                        <label>Nombre</label>
+                        <input type="text" th:field="*{name}" class="form-control w-50" th:errorClass="'form-control alert-danger'"
+                            placeholder="Nombre del plato">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></small>
+                    </div>
 
-                <!-- 2. CATEGORY -->
-                <!-- TODO: CAMBIAR POR UN COMBO-BOX -->
-                <div class="form-group row">
-                    <label>Categoría</label>
-                    <input type="number" th:field="*{category}" class="form-control" th:errorClass="'form-control alert-danger'">
-                    <small class="form-text text-danger" th:if="${#fields.hasErrors('category')}" th:errors="*{category}"></small>
-                </div>
+                    <!-- 2. CATEGORY -->
+                    <!-- TODO: CAMBIAR POR UN COMBO-BOX -->
+                    <div class="form-group row">
+                        <label>Categoría</label>
+                        <input type="number" th:field="*{category}" class="form-control w-25" th:errorClass="'form-control alert-danger'" min="1" max="4"
+                               placeholder="Introduce una categoría del 1 al 4">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('category')}" th:errors="*{category}"></small>
+                    </div>
 
-                <!-- 3. DISH LABEL ONE -->
-                <div class="form-group row">
-                    <label>Etiqueta 1</label>
-                    <input type="number" th:field="*{dishLabelOne}" class="form-control" th:errorClass="'form-control alert-danger'">
-                    <small class="form-text text-danger" th:if="${#fields.hasErrors('dishLabelOne')}" th:errors="*{dishLabelOne}"></small>
-                </div>
+                    <!-- 3. DISH LABEL ONE -->
+                    <div class="form-group row">
+                        <label>Etiqueta 1</label>
+                        <input type="number" th:field="*{dishLabelOne}" class="form-control w-25" th:errorClass="'form-control alert-danger'" min="1" max="8"
+                            placeholder="Introduce una etiqueta del 1 al 8">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('dishLabelOne')}" th:errors="*{dishLabelOne}"></small>
+                    </div>
 
-                <!-- 4. DISH LABEL TWO -->
-                <div class="form-group row">
-                    <label>Etiqueta 2</label>
-                    <input type="number" th:field="*{dishLabelTwo}" class="form-control">
-                </div>
+                    <!-- 4. DISH LABEL TWO -->
+                    <div class="form-group row">
+                        <label>Etiqueta 2</label>
+                        <input type="number" th:field="*{dishLabelTwo}" class="form-control w-25" min="1" max="8"
+                               placeholder="Introduce una etiqueta del 1 al 8">
+                    </div>
 
-                <!-- 5. DISH LABEL THREE -->
-                <div class="form-group row">
-                    <label>Etiqueta 3</label>
-                    <input type="number" th:field="*{dishLabelThree}" class="form-control">
-                </div>
+                    <!-- 5. DISH LABEL THREE -->
+                    <div class="form-group row">
+                        <label>Etiqueta 3</label>
+                        <input type="number" th:field="*{dishLabelThree}" class="form-control w-25" min="1" max="8"
+                               placeholder="Introduce una etiqueta del 1 al 8">
+                    </div>
 
-                <!-- 6. DESCRIPTION -->
-                <div class="form-group row">
-                    <label>Descripción del plato</label>
-                    <input type="text" th:field="*{description}" class="form-control" th:errorClass="'form-control alert-danger'">
-                    <small class="form-text text-danger" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></small>
-                </div>
+                    <!-- 6. DESCRIPTION -->
+                    <div class="form-group row">
+                        <label>Descripción del plato</label>
+                        <textarea th:field="*{description}" class="form-control" style="resize: none" th:errorClass="'form-control alert-danger'"
+                                  placeholder="Inserta la descripción del plato" cols="100" rows="6"></textarea>
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></small>
+                    </div>
 
-                <!-- 7. INGREDIENTS -->
-                <div class="form-group row">
-                    <label>Ingredientes</label>
-                    <input type="text" th:field="*{ingredients}" class="form-control" th:errorClass="'form-control alert-danger'">
-                    <small class="form-text text-danger" th:if="${#fields.hasErrors('ingredients')}" th:errors="*{ingredients}"></small>
-                </div>
+                    <!-- 7. INGREDIENTS -->
+                    <div class="form-group row">
+                        <label>Ingredientes</label>
+                        <textarea th:field="*{ingredients}" class="form-control" style="resize: none" th:errorClass="'form-control alert-danger'"
+                        placeholder="Inserta los ingredientes del plato" cols="100" rows="6"></textarea>
+<!--                        <input type="text" th:field="*{ingredients}" class="form-control" th:errorClass="'form-control alert-danger'">-->
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('ingredients')}" th:errors="*{ingredients}"></small>
+                    </div>
 
-                <!-- 8. PRICE -->
-                <div class="form-group row">
-                    <label>Precio</label>
-                    <input type="number" step="0.01" th:field="*{price}" class="form-control" th:errorClass="'form-control alert-danger'">
-                    <small class="form-text text-danger" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></small>
-                </div>
+                    <!-- 8. PRICE -->
+                    <div class="form-group row w-25">
+                        <label>Precio</label>
+                        <input type="number" step="0.01" th:field="*{price}" class="form-control" th:errorClass="'form-control alert-danger'"
+                            placeholder="Precio de venta (€)">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></small>
+                    </div>
 
-                <!-- 9. IMAGE -->
-                <div class="form-group row">
-                    <label>Adjuntar imagen del plato</label>
-                    <input type="file" name="file" class="form-control">
-                </div>
-                <br>
+                    <!-- 9. IMAGE -->
+                    <div class="form-group row w-50">
+                        <label>Adjuntar imagen del plato</label>
+                        <input type="file" name="file" class="form-control">
+                    </div>
+                    <br>
 
-                <!-- 10. AVAILABLE -->
-                <label>¿Disponible?</label>
-                <input type="checkbox" checked="checked" th:field="*{available}">
-                <br>
-                <br>
+                    <!-- 10. AVAILABLE -->
+                    <label>¿Disponible?</label>
+                    <input type="checkbox" checked="checked" th:field="*{available}">
+                    <br>
+                    <br>
 
-                <!-- SUBMIT BUTTON -->
-                <button type="submit" class="btn btn-success">Guardar</button>
-                <!-- END SUBMIT BUTTON -->
+                    <!-- SUBMIT BUTTON -->
+                    <button type="submit" class="btn btn-success">Guardar</button>
+                    <a class="btn btn-secondary"href="/dishManager" role="button" onclick="return confirm('¿Estás seguro que queires volver atrás? ' +
+                        'No se creará el nuevo plato');">Atrás</a>
+                    <!-- END SUBMIT BUTTON -->
 
-            </div> <!-- END FORM GROUP -->
-        </form> <!-- END FORM ACTION -->
-    </div>
-</main> <!-- END MAIN -->
+                </div> <!-- END FORM GROUP -->
+            </form> <!-- END FORM ACTION -->
+        </div>
+    </main> <!-- END MAIN -->
 
-<!-- FOOTER -->
-<div th:replace="layout/footer :: appFooter"></div>
-<!-- END FOOTER -->
+    <!-- FOOTER -->
+    <div th:replace="layout/footer :: appFooter"></div>
+    <!-- END FOOTER -->
 </body>
 </html>
