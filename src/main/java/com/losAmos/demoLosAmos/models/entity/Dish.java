@@ -43,8 +43,6 @@ public class Dish implements Serializable {
 
     private String  image;
 
-    private boolean hasImg;
-
     private Boolean available;
 
     // ------------------------- //
