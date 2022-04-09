@@ -1,0 +1,46 @@
+<html>
+    <body>
+        <div id="adbCarousel" class="carousel carousel-dark slide mt-3" data-ride="carousel" th:fragment="carousel">
+            <!-- INDICATORS -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#adbCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#adbCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#adbCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <!-- WRAPPER FOR SLIDES -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/images/arroz-meloso-de-pollo-y-verduras_B.jpg" alt="carouselImg1" class="d-block carousel__img">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 class="fmedium">Arroz Meloso de Pollo y Verduras</h5>
+                        <p>Rico plato de arroz con pollo y verduras cocinado con mucho amor</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="/images/fideua-de-secreto-iberico-y-judia-verde_B.jpg" alt="carouselImg2" class="d-block carousel__img">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 class="fmedium">Fideua de Secreto Ibérico y Judias Verdes</h5>
+                        <p>Prueba una fideua única cocinada solo con los mejores ingredientes ¡Te sorprenderá!</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="/images/linguine-a-la-putanesca_B.jpg" alt="carouselImg3" class="d-block carousel__img">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 class="fmedium">Linguine a la Putanesca</h5>
+                        <p>Clásico italiano que no puede faltar en tu día a día</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTROLS -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#adbCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#adbCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </body>
+</html>

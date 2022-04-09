@@ -23,7 +23,7 @@ public class IndexController {
      */
     @GetMapping(value = "/")
     public String getIndex(Model model) {
-        model.addAttribute("title", "index");
+        model.addAttribute("title", "Índice");
         model.addAttribute("dishes", dishAPI.getAll());
         return "index";
     }

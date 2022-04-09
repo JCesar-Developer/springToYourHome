@@ -1,22 +1,84 @@
 <html>
     <body>
-        <div id="header" class="container-fluid" th:fragment="appHeader">
+        <div id="header" class="row header fixed-top shadow-sm rounded-bottom" th:fragment="appHeader">
+            <nav class="navbar navbar-expand-lg navbar-brown">
+                <!-- Container wrapper -->
+                <div class="container-fluid">
+                    <!-- Toggle button -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-bars"></i>
+                    </button>
 
-            <div class="row" style="border: solid red;">
-                <!-- LOGO -->
-                <div class="col-sm" style="border: solid lightblue;">
-                    <a class="logo" href="/"><img src="" alt="logo"></a>
+                    <!-- Collapsible wrapper -->
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <!-- Navbar brand -->
+                        <a class="navbar-brand" href="/">
+                            <img src="/images/logoLeftBrown.png" class="ms-3" width="180" height="70" alt="logo">
+                        </a>
+                        <!-- Left links -->
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/dishManager">Administración de Platos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="/">Link Extra</a>
+                            </li>
+                        </ul>
+                        <!-- Left links -->
+                    </div>
+                    <!-- Collapsible wrapper -->
+
+                    <!-- Right elements -->
+                    <div class="d-flex align-items-center">
+                        <!-- Icon -->
+                        <a class="text-reset me-3" href="#">
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
+
+                        <!-- Notifications -->
+                        <div class="dropdown">
+                            <a class="text-reset me-3 " href="#" id="navbarDropdownMenuLink" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-bell"></i>
+                                <span class="badge rounded-pill badge-notification bg-danger">1</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                                <li>
+                                    <a class="dropdown-item" href="#">Mensajes</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Avatar -->
+                        <div class="dropdown">
+                            <a class="dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdownMenuAvatar" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" height="25" alt="User Avatar"/>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
+                                <li>
+                                    <a class="dropdown-item" href="#">Perfil</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Historial de Pedidos</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Configuración</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Cerrar Sesión</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Right elements -->
                 </div>
-                <!-- NAVBAR -->
-                <div class="col-sm" style="border: solid orange;">
-
-                </div>
-                <!-- PROFILE ICON + CART ICON -->
-                <div class="col-sm" style="border: solid pink;">
-
-                </div>
-            </div>
-
+                <!-- Container wrapper -->
+            </nav>
+            <!-- Navbar -->
         </div>
     </body>
 </html>

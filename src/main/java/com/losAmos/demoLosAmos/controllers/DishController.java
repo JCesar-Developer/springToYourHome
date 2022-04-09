@@ -43,7 +43,7 @@ public class DishController {
      */
     @GetMapping(value = "/dishManager")
     public String showDishesList(Model model) {
-        model.addAttribute("title", "Lista de platos");
+        model.addAttribute("title", "Panel de Administración");
         model.addAttribute("dishes", dishAPI.getAll());
         model.addAttribute( "categories", categoryAPI.getAll());
         model.addAttribute( "labels", labelAPI.getAll());
