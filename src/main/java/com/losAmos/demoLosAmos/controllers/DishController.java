@@ -81,14 +81,14 @@ public class DishController {
             model.addAttribute( "labels", labelAPI.getAll());
             return "dish/addNewDish";
         }//end if
-        //AL CREAR: Si no hay imagen
-        else if ( image.isEmpty() && (dish.getId() == null) ) {
-            //TODO: LANZAR VALIDACIÓN: ERROR
-            return "redirect:/dishManager";
-        }
+//        //AL CREAR: Si no hay imagen
+//        else if ( image.isEmpty() && (dish.getId() == null) ) {
+//            //TODO: LANZAR VALIDACIÓN: ERROR
+//            return "redirect:/dishManager";
+//        }
         //AL CREAR: Si imagen no está vacía -> CREA EL REGISTRO
-        else if( !image.isEmpty() && (dish.getImage() == null) ){
-            Path imagesDirectory = Paths.get("src//main//resources//static/images");
+        if( !image.isEmpty()){
+            Path imagesDirectory = Paths.get("src//main//resources//static/images/");
             String absolutePath = imagesDirectory.toFile().getAbsolutePath();
 
             try {
@@ -102,16 +102,16 @@ public class DishController {
                 e.printStackTrace();
             }
         }
-        //AL MODIFICAR: Si la imagen está vacia pero el registro ya tiene una imagen -> No eliminar imagen anterior
-        else if ( dish.getImage() != null ) {
-            //TODO: No eliminar imagen anterior
-            /* ANTES, HAY QUE IMPLEMENTAR TODO LO DEL VIDEO.
-             * NOTA: AL PASAR EL DEBUGGADOR EL MÉTODO GET IMAGE SALE VACIO.
-             * SE PLANTEA LA IDEA DE METER LA IMAGEN EN UN ARRAY Y ESTABLECER UN
-             * MÉTODO BOOLEANO QUE RECORRA EL ARRAY BUSCANDO SI EXISTEN ELEMENTOS.*/
-            return "redirect:/dishManager";
-        }
-        //END VALIDATION
+//        //AL MODIFICAR: Si la imagen está vacia pero el registro ya tiene una imagen -> No eliminar imagen anterior
+//        else if ( dish.getImage() != null ) {
+//            //TODO: No eliminar imagen anterior
+//            /* ANTES, HAY QUE IMPLEMENTAR TODO LO DEL VIDEO.
+//             * NOTA: AL PASAR EL DEBUGGADOR EL MÉTODO GET IMAGE SALE VACIO.
+//             * SE PLANTEA LA IDEA DE METER LA IMAGEN EN UN ARRAY Y ESTABLECER UN
+//             * MÉTODO BOOLEANO QUE RECORRA EL ARRAY BUSCANDO SI EXISTEN ELEMENTOS.*/
+//            return "redirect:/dishManager";
+//        }
+//        //END VALIDATION
 
         dishAPI.save(dish);
         return "redirect:/dishManager";
