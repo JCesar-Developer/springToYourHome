@@ -6,11 +6,11 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = 'users', uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@Table(name = "users",uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class User {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "name")
@@ -25,6 +25,12 @@ public class User {
 
     private String avatar;
 
+    @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = @JoinColumn(name = "usuario_id",referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "rol_id",referencedColumnName = "id")
+    )
     private Collection<Rol> roles;
 
     // Constructor

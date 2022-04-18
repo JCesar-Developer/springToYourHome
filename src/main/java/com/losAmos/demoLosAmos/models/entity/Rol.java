@@ -7,12 +7,17 @@ import javax.persistence.*;
 public class Rol {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
 
     // Constructor
     public Rol() {
+    }
+
+    // Constructor only with name
+    public Rol(String name) {
+        this.name = name;
     }
 
     // Constructor with arguments
