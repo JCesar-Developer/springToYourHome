@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="www.thymeleaf.org">
+<head>
+    <!-- HEAD -->
+    <div th:replace="layout/head :: head"></div>
+    <!-- /HEAD -->
+</head>
+<body>
+    <!-- HEADER -->
+    <div th:replace="layout/header :: appHeader"></div>
+    <!-- /HEADER -->
+
+    <!-- MAIN -->
+    <main>
+        <h1 th:text="${title}"></h1>
+
+        <!-- ADD BUTTON -->
+        <div>
+            <a href="/dishManager/save/0" class="btn btn-addDish">Agregar nuevo plato</a>
+        </div>
+        <!-- END ADD BUTTON -->
+
+        <!-- CASE1: WHEN THERE'RE NOT DISHES -->
+        <h2 th:if="${dishes.isEmpty()}">Aún no hay platos agregados</h2>
+        <!-- CASE2: WHEN THERE ARE DISHES -->
+        <div th:if="${!dishes.isEmpty()}">
+
+            <!-- DISHES TABLE -->
+            <table class="table">
+                <thead>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Categoría</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Ingredientes</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Imagen</th>
+                <th scope="col">Disponible</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                </thead>
+                <tbody>
+                <hr>
+                <tr scope="row" th:each="dish: ${dishes}">
+                    <td class="text-center" th:text="${dish.id}"></td>
+                    <td th:text="${dish.name}"></td>
+                    <td class="text-center" th:text="${dish.category} + '-' + ${dish.dishLabelOne} + '-' + ${dish.dishLabelTwo}+ '-' + ${dish.dishLabelThree}"></td>
+                    <td th:text="${dish.description}"></td>
+                    <td th:text="${dish.ingredients}"></td>
+                    <td class="text-center" th:text="${dish.price}"></td>
+                    <td><img th:src="@{'/images/' + ${dish.getImage()}}" class="border border-secondary rounded" width="60px" alt="dishImage"></td>
+                    <td class="text-center" th:if="${dish.getAvailable() == true}">
+                        <img src="/images/checked.png" width="40px" alt="Disponible">
+                    </td>
+                    <td class="text-center" th:if="${dish.getAvailable() == false}">
+                        <img src="/images/cancel.png" width="40px" alt="noDisponible">
+                    </td>
+                    <td class="text-center">
+                        <a class="btn btn-secondary" th:href="@{/dishManager/save/{id}(id=${dish.id})}" role="button">Editar</a>
+                    </td>
+                    <td class="text-center">
+                        <a class="btn btn-danger" th:href="@{/dishManager/delete/{id}(id=${dish.id})}" role="button"
+                           onclick="return confirm('¿Estás seguro que quieres eliminar este plato?');">Eliminar</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table> <!-- END DISHES TABLE -->
+
+        </div> <!-- END CASE2: WHEN THERE ARE DISHES -->
+
+    </main> <!-- END MAIN -->
+
+    <!-- FOOTER -->
+    <div th:replace="layout/footer :: appFooter"></div>
+    <!-- END FOOTER -->
+</body>
+</html>
