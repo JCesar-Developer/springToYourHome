@@ -1,5 +1,7 @@
 package com.losAmos.demoLosAmos.models.entity;
 
+import org.springframework.security.core.GrantedAuthority;
+
 import java.util.Collection;
 
 import javax.persistence.*;
@@ -34,7 +36,7 @@ public class User {
     private Collection<Rol> roles;
 
     // Constructor
-    public User() {
+    public User(String email, String password, Collection<? extends GrantedAuthority> grantedAuthorities) {
     }
 
     // Constructor with arguments without ID
@@ -44,6 +46,16 @@ public class User {
         this.email = email;
         this.password = password;
         this.avatar = avatar;
+        this.roles = roles;
+    }
+
+    // Constructor with arguments without avatar
+    public User(Long id, String name, String surname, String email, String password, Collection<Rol> roles) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.password = password;
         this.roles = roles;
     }
 
