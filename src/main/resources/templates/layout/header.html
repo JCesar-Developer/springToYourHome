@@ -1,4 +1,4 @@
-<html>
+<html xmlns:sec="http://www.w3.org/1999/xhtml">
     <body>
         <div id="header" class="row header fixed-top shadow-sm rounded-bottom" th:fragment="appHeader">
             <nav class="navbar navbar-expand-lg navbar-brown">
@@ -10,8 +10,8 @@
                         <i class="fas fa-bars"></i>
                     </button>
 
-                    <!-- Collapsible wrapper -->
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Collapsible wrapper admin -->
+                    <div sec:authorize="hasRole('ROLE_ADMIN')" class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Navbar brand -->
                         <a class="navbar-brand ms-4" href="/">
                             <img src="/images/logoLeftBrown.png" class="ms-3" width="180" height="70" alt="logo">
@@ -30,7 +30,28 @@
                         </ul>
                         <!-- Left links -->
                     </div>
-                    <!-- Collapsible wrapper -->
+                    <!-- Collapsible wrapper user -->
+
+                    <div sec:authorize="!hasRole('ROLE_ADMIN')" class="collapse navbar-collapse" id="navbarSupportedContentUser">
+                        <!-- Navbar brand -->
+                        <a class="navbar-brand ms-4" href="/">
+                            <img src="/images/logoLeftBrown.png" class="ms-3" width="180" height="70" alt="logo">
+                        </a>
+                        <!-- Left links -->
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">Menu</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="/">Link Extra</a>
+                            </li>
+                        </ul>
+                        <!-- Left links -->
+                    </div>
+                    <!-- Collapsible wrapper user-->
 
                     <!-- Right elements -->
                     <div class="d-flex align-items-center">
@@ -39,8 +60,14 @@
                             <i class="fas fa-shopping-cart"></i>
                         </a>
 
+                        <div sec:authorize="!isAuthenticated()" class="dropdown">
+                            <a class="text-reset me-3 " href="/login" role="button">
+                                <span class="btn btn-outline-brown">Iniciar Sesión</span>
+                            </a>
+                        </div>
+
                         <!-- Notifications -->
-                        <div class="dropdown">
+                        <div sec:authorize="isAuthenticated()" class="dropdown">
                             <a class="text-reset me-3 " href="#" id="navbarDropdownMenuLink" role="button"
                                data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-bell"></i>
@@ -52,13 +79,13 @@
                                 </li>
                             </ul>
                         </div>
-                        <!-- Avatar -->
-                        <div class="dropdown">
-                            <a class="dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdownMenuAvatar" role="button"
+                        <!-- USER AVATAR OPTIONS -->
+                        <div sec:authorize="hasRole('ROLE_USER')" class="dropdown">
+                            <a class="dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdownMenuAvatarUser" role="button"
                                data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="/images/avatarTest.webp" class="rounded-circle" height="25" alt="User Avatar"/>
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatarUser">
                                 <li>
                                     <a class="dropdown-item" href="#">Perfil</a>
                                 </li>
@@ -69,7 +96,28 @@
                                     <a class="dropdown-item" href="#">Configuración</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="#">Cerrar Sesión</a>
+                                    <a class="dropdown-item" th:href="@{/logout}">Cerrar Sesión</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- ADMIN AVATAR OPTIONS -->
+                        <div sec:authorize="hasRole('ROLE_ADMIN')" class="dropdown">
+                            <a class="dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdownMenuAvatarAdmin" role="button"
+                               data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="/images/avatarTest.webp" class="rounded-circle" height="25" alt="User Avatar"/>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatarAdmin">
+                                <li>
+                                    <a class="dropdown-item" href="#">Perfil</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Historial de Ventas</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Configuración</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" th:href="@{/logout}">Cerrar Sesión</a>
                                 </li>
                             </ul>
                         </div>

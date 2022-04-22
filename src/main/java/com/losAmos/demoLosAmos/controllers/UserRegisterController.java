@@ -3,6 +3,7 @@ package com.losAmos.demoLosAmos.controllers;
 import com.losAmos.demoLosAmos.models.services.UserService;
 import com.losAmos.demoLosAmos.models.dto.UserRegisterDTO;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +16,7 @@ public class UserRegisterController {
     private UserService userService;
 
     public UserRegisterController(UserService userService){
+        super();
         this.userService = userService;
     }
 

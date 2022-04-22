@@ -143,16 +143,43 @@ a:hover, a:focus{
 }
 .dish-container{
     width: 100%;
+    max-width: 1440px;
     padding-right: var(--bs-gutter-x, 0.75rem);
     padding-left: var(--bs-gutter-x, 0.75rem);
     margin-right: auto;
     margin-left: auto;
-    max-width: 1440px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .dish{
+    position: relative;
     border: 2px solid var(--secondary-color);
+    background-color: var(--secondary-color);
+    width: 100%;
+    max-width: 320px;
     height: 100%;
+    min-height: 400px;
     max-height: 450px;
+    overflow: hidden;
+}
+.dish .row .col-12 img{
+    width: 100%;
+    max-width: 320px;
+    height: 100%;
+    max-heigth: 245px;
+}
+.dish .dish__contentBox{
+    width: 100%;
+    max-width: 320px;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+}
+.dish .dish__contentBox-info{
+    min-height: 100px;
+    height: 100%;
+    align-items: center;
 }
 .btn-addDish {
     color: #fff;

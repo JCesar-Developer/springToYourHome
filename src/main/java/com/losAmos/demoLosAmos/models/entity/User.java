@@ -30,7 +30,7 @@ public class User {
     @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinTable(
             name = "users_roles",
-            joinColumns = @JoinColumn(name = "usuario_id",referencedColumnName = "id"),
+            joinColumns = @JoinColumn(name = "user_id",referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "rol_id",referencedColumnName = "id")
     )
     private Collection<Rol> roles;
@@ -68,6 +68,10 @@ public class User {
         this.password = password;
         this.avatar = avatar;
         this.roles = roles;
+    }
+
+    public User() {
+
     }
 
     // Getters and Setters

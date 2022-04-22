@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="www.thymeleaf.org">
+      xmlns:th="www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <!-- HEAD -->
     <div th:replace="layout/head :: head"></div>
@@ -22,32 +23,33 @@
             <!-- MAIN COURSE -->
             <div class="row mt-4 mb-4 dish-container">
                 <div class="row">
-                    <p>
+                    <p class="m-0">
                         <span class="title-category">Platos Principales</span>
                         <span class="title-subcategory">| Raciones de 420-500 gramos pensados para una comida o cena completa</span>
                     </p>
                 </div>
                 <div class="row">
                     <!-- FOR EACH DISH -->
-                    <div class="col-3" th:each="dish: ${dishes}" th:if="${dish.available}">
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 mt-3" th:each="dish: ${dishes}" th:if="${dish.available}">
                         <div class="col-12 dish rounded shadow-sm">
-                            <div class="row">
+                            <div class="row dish__imgBox">
                                 <div class="col-12">
-                                    <img class="rounded" th:src="@{'/images/' + ${dish.getImage()}}" th:alt="${dish.image}" style="max-width: 100%;"/>
+                                    <img class="rounded" th:src="@{'/images/' + ${dish.getImage()}}" th:alt="${dish.image}"/>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-12" >
-                                    <h5 th:text="${dish.name}"></h5>
+                            <div class="row dish__contentBox">
+                                <div class="row dish__contentBox-info">
+                                    <div class="col-12 text-center" >
+                                        <h5 th:text="${dish.name}"></h5>
+                                    </div>
                                 </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-6 justify-content-start">
-                                    <h4 class="ms-3" th:text="${dish.price} + '€'"></h4>
-                                </div>
-                                <div class="col-6 justify-content-end">
-                                    <button class="btn btn-addDish ms-4 text-uppercase" type="button">+ Añadir</button>
+                                <div class="row dish__contentBox-price">
+                                    <div class="col-6 justify-content-start">
+                                        <h4 class="ms-3" th:text="${dish.price} + '€'"></h4>
+                                    </div>
+                                    <div class="col-6 justify-content-end">
+                                        <button class="btn btn-addDish ms-4 text-uppercase" type="button">+ Añadir</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -58,14 +60,14 @@
             <!-- SECOND COURSE -->
             <div class="row mt-4 dish-container">
                 <div class="row">
-                    <p>
+                    <p class="m-0">
                         <span class="title-category">Platos de Segundo</span>
                         <span class="title-subcategory"> | Con mayor porcentaje de verduras y sabores suaves</span>
                     </p>
                 </div>
                 <div class="row">
                     <!-- FOR EACH DISH -->
-                    <div class="col-3" th:each="dish: ${dishes}" th:if="${dish.available}">
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 mt-3" th:each="dish: ${dishes}" th:if="${dish.available}">
                         <div class="col-12 dish rounded shadow-sm">
                             <div class="row">
                                 <div class="col-12">
@@ -77,7 +79,6 @@
                                     <h5 th:text="${dish.name}"></h5>
                                 </div>
                             </div>
-                            <hr>
                             <div class="row">
                                 <div class="col-6 justify-content-start">
                                     <h4 class="ms-3" th:text="${dish.price} + '€'"></h4>
@@ -94,7 +95,7 @@
             <!-- DESERT -->
             <div class="row mt-4 dish-container">
                 <div class="row">
-                    <p>
+                    <p class="m-0">
                         <span class="title-category">Postre</span>
                         <span class="title-subcategory"> | Un toque dulce para terminar una rica comida</span>
                     </p>
@@ -113,7 +114,6 @@
                                     <h5 th:text="${dish.name}"></h5>
                                 </div>
                             </div>
-                            <hr>
                             <div class="row">
                                 <div class="col-6 justify-content-start">
                                     <h4 class="ms-3" th:text="${dish.price} + '€'"></h4>
@@ -129,7 +129,7 @@
             <!-- DRINKS -->
             <div class="row mt-4 dish-container">
                 <div class="row">
-                    <p>
+                    <p class="m-0">
                         <span class="title-category">Bebidas</span>
                         <span class="title-subcategory">| Refrescos fríos para complementar tu comida</span>
                     </p>
@@ -148,7 +148,6 @@
                                     <h5 th:text="${dish.name}"></h5>
                                 </div>
                             </div>
-                            <hr>
                             <div class="row">
                                 <div class="col-6 justify-content-start">
                                     <h4 class="ms-3" th:text="${dish.price} + '€'"></h4>
