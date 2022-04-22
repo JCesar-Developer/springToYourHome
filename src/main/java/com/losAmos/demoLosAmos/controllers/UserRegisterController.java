@@ -26,7 +26,8 @@ public class UserRegisterController {
     }
 
     @GetMapping
-    public String showRegisterForm(){
+    public String showRegisterForm(Model model){
+        model.addAttribute("title", "Registro");
         return "register";
     }
 

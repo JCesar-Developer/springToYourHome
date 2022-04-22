@@ -1,0 +1,29 @@
+<html>
+  <body>
+    <!-- FOR EACH DISH -->
+    <div class="col-12 col-md-6 col-lg-4 col-xl-3 mt-3" th:fragment="showDish" th:each="dish: ${dishes}" th:if="${dish.available}">
+      <div class="col-12 dish rounded shadow-sm">
+        <div class="row">
+          <div class="col-12">
+            <img class="rounded" th:src="@{'/images/' + ${dish.getImage()}}" th:alt="${dish.image}"/>
+          </div>
+        </div>
+        <div class="row dish__contentBox">
+          <div class="row dish__contentBox-info">
+            <div class="col-12 text-center" >
+              <h5 class="font-medium" th:text="${dish.name}"></h5>
+            </div>
+          </div>
+          <div class="row dish__contentBox-price">
+            <div class="col-6 justify-content-start">
+              <h5 class="ms-3" th:text="${dish.price} + '€'"></h5>
+            </div>
+            <div class="col-6 justify-content-end">
+              <button class="btn btn-addDish ms-4 text-uppercase" type="button">+ Añadir</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- END FOR EACH DISH -->
+  </body>
+</html>

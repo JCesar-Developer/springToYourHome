@@ -1,7 +1,7 @@
 <html xmlns:sec="http://www.w3.org/1999/xhtml">
     <body>
         <div id="header" class="row header fixed-top shadow-sm rounded-bottom" th:fragment="appHeader">
-            <nav class="navbar navbar-expand-lg navbar-brown">
+            <nav class="navbar navbar-expand-md navbar-brown">
                 <!-- Container wrapper -->
                 <div class="container-fluid">
                     <!-- Toggle button -->
@@ -17,41 +17,36 @@
                             <img src="/images/logoLeftBrown.png" class="ms-3" width="180" height="70" alt="logo">
                         </a>
                         <!-- Left links -->
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <ul class="navbar-nav ms-5 me-auto">
                             <li class="nav-item">
                                 <a class="nav-link" href="/">Inicio</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/dishManager">Administración de Platos</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="/">Link Extra</a>
-                            </li>
                         </ul>
                         <!-- Left links -->
                     </div>
-                    <!-- Collapsible wrapper user -->
+                    <!-- /Collapsible wrapper admin -->
 
+                    <!-- Collapsible wrapper user -->
                     <div sec:authorize="!hasRole('ROLE_ADMIN')" class="collapse navbar-collapse" id="navbarSupportedContentUser">
                         <!-- Navbar brand -->
                         <a class="navbar-brand ms-4" href="/">
                             <img src="/images/logoLeftBrown.png" class="ms-3" width="180" height="70" alt="logo">
                         </a>
                         <!-- Left links -->
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <ul class="navbar-nav ms-5 me-auto">
                             <li class="nav-item">
                                 <a class="nav-link" href="/">Inicio</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/">Menu</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="/">Link Extra</a>
-                            </li>
                         </ul>
                         <!-- Left links -->
                     </div>
-                    <!-- Collapsible wrapper user-->
+                    <!-- /Collapsible wrapper user-->
 
                     <!-- Right elements -->
                     <div class="d-flex align-items-center">
@@ -83,7 +78,7 @@
                         <div sec:authorize="hasRole('ROLE_USER')" class="dropdown">
                             <a class="dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdownMenuAvatarUser" role="button"
                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="/images/avatarTest.webp" class="rounded-circle" height="25" alt="User Avatar"/>
+                                <img src="/images/adminAvatar.webp" class="rounded-circle" height="25" alt="User Avatar"/>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatarUser">
                                 <li>
@@ -104,7 +99,7 @@
                         <div sec:authorize="hasRole('ROLE_ADMIN')" class="dropdown">
                             <a class="dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdownMenuAvatarAdmin" role="button"
                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="/images/avatarTest.webp" class="rounded-circle" height="25" alt="User Avatar"/>
+                                <img src="/images/adminAvatar.webp" class="rounded-circle" height="25" alt="User Avatar"/>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatarAdmin">
                                 <li>

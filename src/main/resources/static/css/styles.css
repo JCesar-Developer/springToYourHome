@@ -7,12 +7,14 @@
 }
 /* GLOBAL */
 html{
-
+    position: relative;
+    min-height: 100vh;
 }
 body{
     padding: 0;
     background-color: var(--optional-color);
     font-family: var(--primary-font) !important;
+    margin-bottom: 95px;
 }
 main{
     margin: 110px 0 0;
@@ -28,7 +30,7 @@ a:hover, a:focus{
 .header{
     background-color: var(--bg-color);
 }
-.fmedium{
+.font-medium{
     font-weight: 500;
 }
 .badge-notification{
@@ -41,6 +43,9 @@ a:hover, a:focus{
 /* FOOTER */
 .footer{
     background-color: var(--bg-color);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 .footer__menu-link{
     text-transform: uppercase;
@@ -53,6 +58,9 @@ a:hover, a:focus{
 .nav-link{
     text-transform: uppercase;
     font-weight: bold;
+}
+.navbar-nav{
+    align-items: center;
 }
 .navbar-brown .navbar-brand {
     color: var(--primary-color);
@@ -155,13 +163,12 @@ a:hover, a:focus{
 .dish{
     position: relative;
     border: 2px solid var(--secondary-color);
-    background-color: var(--secondary-color);
+    background-color: rgba(214, 210, 196, 0.7);
     width: 100%;
     max-width: 320px;
     height: 100%;
     min-height: 400px;
     max-height: 450px;
-    overflow: hidden;
 }
 .dish .row .col-12 img{
     width: 100%;
@@ -178,6 +185,11 @@ a:hover, a:focus{
 }
 .dish .dish__contentBox-info{
     min-height: 100px;
+    height: 100%;
+    align-items: center;
+}
+.dish__contentBox-price{
+    min-height: 50px;
     height: 100%;
     align-items: center;
 }

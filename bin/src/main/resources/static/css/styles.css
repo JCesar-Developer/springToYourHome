@@ -28,7 +28,7 @@ a:hover, a:focus{
 .header{
     background-color: var(--bg-color);
 }
-.fmedium{
+.font-medium{
     font-weight: 500;
 }
 .badge-notification{
