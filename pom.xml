@@ -33,20 +33,20 @@
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 			<version>2.6.7</version>
 		</dependency>
-		<dependency>
-			<groupId>org.thymeleaf.extras</groupId>
-			<artifactId>thymeleaf-extras-springsecurity5</artifactId>
-			<version>3.0.4.RELEASE</version>
-		</dependency>
 		<!-- VALIDATION -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
 			<version>2.6.5</version>
 		</dependency>
+		<!-- SPRING SECURITY -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-springsecurity5</artifactId>
 		</dependency>
 		<!-- - - - - - - - - DATABASES - - - - - - - - -->
 		<!-- SPRING BOOT JPA (HIBERNATE) -->

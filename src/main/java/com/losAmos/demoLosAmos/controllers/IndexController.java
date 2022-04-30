@@ -21,13 +21,11 @@ public class IndexController {
      * @param model
      * @return
      */
-    @GetMapping(value = "/")
+    @GetMapping( value = {"", "/", "/index"} )
     public String getIndex(Model model) {
         model.addAttribute("title", "Índice");
         model.addAttribute("dishes", dishAPI.getAll());
         return "index";
     }
-
-
 
 }

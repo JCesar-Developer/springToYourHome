@@ -1,6 +1,6 @@
 package com.losAmos.demoLosAmos.models.impl;
 
-import com.losAmos.demoLosAmos.models.dao.LabelDaoAPI;
+import com.losAmos.demoLosAmos.models.repository.LabelDaoAPI;
 import com.losAmos.demoLosAmos.models.entity.Label;
 import com.losAmos.demoLosAmos.models.services.GenericServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;

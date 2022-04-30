@@ -1,32 +1,44 @@
 package com.losAmos.demoLosAmos.models.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Collection;
 
 @Entity
-@Table(name = "rol")
-public class Rol {
+@Table(name = "roles")
+public class Role implements Serializable {
 
+    private static final long serialVersion = 1L;
+
+    // ------------------ //
+    // --- ATTRIBUTES --- //
+    // ------------------ //
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
 
+    @ManyToMany(mappedBy = "roles")
+    private Collection<User> users;
+
+
     // Constructor
-    public Rol() {
+    public Role() {
     }
 
     // Constructor only with name
-    public Rol(String name) {
+    public Role(String name) {
         this.name = name;
     }
 
     // Constructor with arguments
-    public Rol(Long id, String name) {
+    public Role(Long id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    // Getters and Setters
+    // ------------------------- //
+    // --- GETTERS & SETTERS --- //
+    // ------------------------- //
     public Long getId() {
         return id;
     }
@@ -42,4 +54,5 @@ public class Rol {
     public void setName(String name) {
         this.name = name;
     }
+
 }

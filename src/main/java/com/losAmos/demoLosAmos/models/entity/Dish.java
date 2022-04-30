@@ -8,9 +8,9 @@ import javax.validation.constraints.*;
 @Table(name="dishes")
 public class Dish implements Serializable {
 
-    // ----------------- //
-    // --- ATRIBUTES --- //
-    // ----------------- //
+    // ------------------ //
+    // --- ATTRIBUTES --- //
+    // ------------------ //
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long    id;

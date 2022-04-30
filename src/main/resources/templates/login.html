@@ -16,35 +16,46 @@
 <main class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
+
+            <!-- TITLE -->
             <h1 class="mb-3">Inicio de Sesión</h1>
-            <form th:action="@{/login}" method="post">
+            <!-- END TITLE -->
+
+            <!-- FORM -->
+            <form th:action="@{/login}" method="POST">
+
+                <!-- ALERTS MESSAGES  -->
                 <div th:if="${param.error}">
-                    <div class="alert alert-danger">
-                        El usuario o la contraseña no son correctos
+                    <div class="alert alert-danger alert-dismissible fade show d-flex justify-content-center">
+                        <p th:text="${error}"></p>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 </div>
-                <div th:if="${param.logout}">
-                    <div class="alert alert-info">
-                        Se ha cerrado la sesión
-                    </div>
-                </div>
+                <!-- END ALERT MESSAGES  -->
+
+                <!-- INPUT EMAIL -->
                 <div class="form-group mb-2">
                     <label class="form-label" for="username" >Email: </label>
                     <input id="username" type="email" name="username" class="form-control w-75" required autofocus="autofocus" placeholder="Email">
-                </div>
+                </div> <!-- END INPUT EMAIL -->
+                <!-- INPUT PASSWORD -->
                 <div class="form-group mb-2">
                     <label class="form-label" for="password" >Contraseña: </label>
                     <input id="password" type="password" name="password" class="form-control w-75" required autofocus="autofocus" placeholder="Contraseña">
-                </div>
+                </div> <!-- END INPUT PASSWORD -->
+                <br style="margin-top: -8px;">
+                <!-- BTN SUBMIT & BTN GO TO REGISTER -->
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-6 col-md-offset-3">
                             <button type="submit" class="form-control btn btn-addDish" id="login-submit">Iniciar Sesión</button>
-                            <span>¿No tienes cuenta?<a th:href="@{/register}">Regístrate</a></span>
+                            <span>¿No tienes cuenta?<a th:href="@{/register}"> Regístrate</a></span>
                         </div>
                     </div>
-                </div>
-            </form>
+                </div> <!-- END BTN SUBMIT & BTN GO TO REGISTER -->
+
+            </form> <!-- END FORM -->
+
         </div>
     </div>
 </main>

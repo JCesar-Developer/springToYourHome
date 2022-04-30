@@ -1,20 +1,20 @@
 package com.losAmos.demoLosAmos.models.impl;
 
+import com.losAmos.demoLosAmos.models.entity.Role;
+import com.losAmos.demoLosAmos.models.repository.RoleDaoAPI;
 import com.losAmos.demoLosAmos.models.services.GenericServiceImpl;
-import com.losAmos.demoLosAmos.models.entity.Dish;
-import com.losAmos.demoLosAmos.models.repository.DishDaoAPI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class DishServiceImpl extends GenericServiceImpl<Dish, Long> {
+public class RoleServiceImpl extends GenericServiceImpl<Role, Long> {
 
     @Autowired
-    private DishDaoAPI dishDaoAPI;
+    private RoleDaoAPI roleDaoAPI;
 
     @Override
-    public CrudRepository<Dish, Long> getDao() {
-        return dishDaoAPI;
+    public CrudRepository<Role, Long> getDao() {
+        return roleDaoAPI;
     }
 }

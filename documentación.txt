@@ -13,10 +13,37 @@ url: https://www.baeldung.com/javax-validation
     @NotNull                -> Aplicar a no Strings.
     @Email                  -> Para que el formato del correo sea el correcto.
     @size(min= , max= )     -> Define el tamaño mínimo o máximo de un atributo.
+    @RequestParam           -> Adquiere un parámetro tras una solicitud HTTP.
 
-// --- WHY --- //
-¿Why is it important serialize our entities?
-    -> https://www.baeldung.com/jpa-entities-serializable#:~:text=If%20we%20want%20to%20expose,page%20visits%20to%20our%20website.
+-----------------------------------------------
+--------------- SPRING SECURITY ---------------
+-----------------------------------------------
+GRACIAS A SPRING SECURITY, PODEMOS DELEGAR SEGURIDAD DE AUTENTICACIÓN A LAS DIFERNETES:
+URL: https://www.udemy.com/course/spring-framework-5/learn/lecture/9534924#questions
+    - Rutas(HttpSecurity http)
+    - Vistas (sec:authorize)
+    - Controladores(Diferente métodos)
+
+
+VISTAS: NECESITAN THYMELEAF Y VAN DENTRO DE UN ELEMENTO DEL DOM:
+----------------------------------------------------------------
+    CONDICIONALES:
+    --------------
+    sec:authorize="isAutheticated()"        -> Muestra contenido solo a un usuario autenticado.
+    sec:authorize="hasRole('ROLE_ADMIN')"   -> Muestra contenido solo si el usuario es de tipo ROLE_ADMIN.
+    sec:authorize="hasRole('ROLE_USER')"   -> Muestra contenido solo si el usuario es de tipo ROLE_USER.
+    ATRIBUTOS:
+    ----------
+    sec:authentication="name"                   -> Entrega el valor del usuario con autorización en Security.
+    sec:authentication="principal.authorities"  -> Muestra el tipo de autorización del usuario.
+
+
+
+
+
+
+
+
 
 
 =============
@@ -36,6 +63,7 @@ url: https://www.baeldung.com/javax-validation
     PASO 2: Puedo guardar y cre
 
 //PENDIENTE OPCIONAL:
+- FALTA: Crear el indice para navegar hacia la vista de los distintos platos.
 - FALTA: Crear las vistas para mostrar los diferentes MENUS. (DISCUTIR)
 - FALTA: Crear los modelos y controladores para interactuar con los MENUS. (DISCUTIR)
 

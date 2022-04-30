@@ -1,7 +1,8 @@
 package com.losAmos.demoLosAmos.controllers;
 
+import com.losAmos.demoLosAmos.models.entity.User;
 import com.losAmos.demoLosAmos.models.services.UserService;
-import com.losAmos.demoLosAmos.models.dto.UserRegisterDTO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,18 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/register")
-public class UserRegisterController {
+public class UserController {
 
+    @Autowired
     private UserService userService;
 
-    public UserRegisterController(UserService userService){
-        super();
-        this.userService = userService;
-    }
-
     @ModelAttribute("user")
-    public UserRegisterDTO returnNewUserRegisterDTO(){
-        return new UserRegisterDTO();
+    public User returnNewUser(){
+        return new User();
     }
 
     @GetMapping
@@ -32,8 +29,8 @@ public class UserRegisterController {
     }
 
     @PostMapping
-    public String registerUserAccount(@ModelAttribute("user") UserRegisterDTO registerDTO){
-        userService.save(registerDTO);
+    public String registerUserAccount(@ModelAttribute("user") User user){
+        userService.insert(user);
         return "redirect:/register?ok";
     }
 }

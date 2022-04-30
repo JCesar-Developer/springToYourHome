@@ -10,11 +10,33 @@
 </head>
 <body>
     <div class="container-fluid p-0">
+
         <!-- HEADER -->
         <div th:replace="layout/header :: appHeader"></div>
         <!-- /HEADER -->
 
         <main>
+            <!-- ALERTS MESSAGES  -->
+            <div th:if="${param.loginSuccess}">
+                <div class="alert alert-success alert-dismissible fade show d-flex justify-content-center">
+                    <p>Se ha iniciado sesión correctamente. ¡¡¡Bienvenido <span sec:authentication="name"></span>!!!</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+            <div th:if="${ info != null}">
+                <div class="alert alert-warning alert-dismissible fade show d-flex justify-content-center">
+                    <p th:text="${ info }"></p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+            <div th:if="${param.logoutSuccess}">
+                <div class="alert alert-warning alert-dismissible fade show d-flex justify-content-center">
+                    La sesión ha finalizado correctamente.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+            <!-- END ALERT MESSAGES  -->
+
             <!-- CAROUSEL -->
             <div th:replace="layout/carousel :: carousel"></div>
             <!-- /CAROUSEL -->
@@ -84,6 +106,9 @@
         </main>
 
         <!-- FOOTER -->
+        <p sec:authorize="isAuthenticated()">
+            Usuario: <span sec:authentication="name"></span> | Rol: <span sec:authentication="principal.authorities"></span>
+        </p>
         <div th:replace="layout/footer :: appFooter"></div>
         <!-- /FOOTER -->
     </div>
