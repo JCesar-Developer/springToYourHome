@@ -24,26 +24,35 @@
             <!-- FORM -->
             <form th:action="@{/login}" method="POST">
 
-                <!-- ALERTS MESSAGES  -->
+                <!-- FLASH ALERT -->
+                <div th:if="${param.ok}">
+                    <div class="alert alert-success alert-dismissible fade show d-flex justify-content-center">
+                        <p>¡Bienvenido! Su registro se ha completado satisfactoriamente.</p>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
                 <div th:if="${param.error}">
                     <div class="alert alert-danger alert-dismissible fade show d-flex justify-content-center">
                         <p th:text="${error}"></p>
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 </div>
-                <!-- END ALERT MESSAGES  -->
+                <!-- END FLASH ALERT -->
 
                 <!-- INPUT EMAIL -->
                 <div class="form-group mb-2">
                     <label class="form-label" for="username" >Email: </label>
                     <input id="username" type="email" name="username" class="form-control w-75" required autofocus="autofocus" placeholder="Email">
                 </div> <!-- END INPUT EMAIL -->
+
                 <!-- INPUT PASSWORD -->
                 <div class="form-group mb-2">
                     <label class="form-label" for="password" >Contraseña: </label>
                     <input id="password" type="password" name="password" class="form-control w-75" required autofocus="autofocus" placeholder="Contraseña">
                 </div> <!-- END INPUT PASSWORD -->
+
                 <br style="margin-top: -8px;">
+
                 <!-- BTN SUBMIT & BTN GO TO REGISTER -->
                 <div class="form-group">
                     <div class="row">

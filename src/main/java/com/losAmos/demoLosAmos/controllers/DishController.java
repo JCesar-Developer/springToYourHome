@@ -39,7 +39,7 @@ public class DishController {
      * @apiNote you're sending a list done for the getAll() methode from dishAPI
      * @return shows view: "dishManager"
      */
-    @GetMapping(value = "/dishManager")
+    @GetMapping(value = "/admin/dishManager")
     public String showDishesList(Model model) {
         model.addAttribute("title", "Panel de Administración");
         model.addAttribute("dishes", dishAPI.getAll());
@@ -54,7 +54,7 @@ public class DishController {
      * @apiNote if the (dish_id != null) : you'll update an old dish;
      * @return shows pop-up view: "dishManager/save"
      */
-    @GetMapping("/dishManager/save/{id}")
+    @GetMapping("/admin/dishManager/save/{id}")
     public String showSaveNewDish(@PathVariable("id") Long id, Model model) {
         model.addAttribute( "categories", categoryAPI.getAll());
         model.addAttribute( "labels", labelAPI.getAll());
@@ -72,7 +72,7 @@ public class DishController {
      * WHEN YOU USE THIS ROUTE: You're going to use the save() method from the dishAPI.
      * @return shows view: "dishManager"
      */
-    @PostMapping("/dishManager/save")
+    @PostMapping("/admin/dishManager/save")
     public String saveDish(@Valid Dish dish, BindingResult result, Model model,
                            @RequestParam("file")MultipartFile image) {
         //VALIDATION
@@ -114,17 +114,17 @@ public class DishController {
 //        //END VALIDATION
 
         dishAPI.save(dish);
-        return "redirect:/dishManager";
+        return "redirect:/admin/dishManager";
     }
 
     /**
      * WHEN YOU USE THIS ROUTE: You're going to use the delete() method from the dishAPI.
      * @return shows view: "dishManager"
      */
-    @GetMapping("/dishManager/delete/{id}")
+    @GetMapping("/admin/dishManager/delete/{id}")
     public String deleteDish(@PathVariable Long id, Model model) {
         dishAPI.delete(id);
-        return "redirect:/dishManager";
+        return "redirect:/admin/dishManager";
     }
 
 }

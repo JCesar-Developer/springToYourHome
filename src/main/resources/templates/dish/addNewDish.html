@@ -15,7 +15,7 @@
     <!-- MAIN -->
     <main>
         <div class="container">
-            <form action="#" th:action="@{/dishManager/save}" th:object="${dish}"
+            <form action="#" th:action="@{/admin/dishManager/save}" th:object="${dish}"
                   method="POST" enctype="multipart/form-data">
                 <div class="form-group">
 
@@ -108,7 +108,8 @@
 
                     <!-- SUBMIT BUTTON -->
                     <button type="submit" class="btn btn-success">Guardar</button>
-                    <a class="btn btn-secondary"href="/dishManager" role="button" onclick="return confirm('¿Estás seguro que queires volver atrás? ' +
+                    <a class="btn btn-secondary"href="/admin/dishManager" role="button"
+                       onclick="return confirm('¿Estás seguro que queires volver atrás? ' +
                         'No se creará el nuevo plato');">Atrás</a>
                     <!-- END SUBMIT BUTTON -->
 

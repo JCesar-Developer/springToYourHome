@@ -18,7 +18,7 @@
 
         <!-- ADD BUTTON -->
         <div>
-            <a href="/dishManager/save/0" class="btn btn-addDish">Agregar nuevo plato</a>
+            <a href="/admin/dishManager/save/0" class="btn btn-addDish">Agregar nuevo plato</a>
         </div>
         <!-- END ADD BUTTON -->
 
@@ -58,10 +58,10 @@
                         <img src="/images/cancel.png" width="40px" alt="noDisponible">
                     </td>
                     <td class="text-center">
-                        <a class="btn btn-secondary" th:href="@{/dishManager/save/{id}(id=${dish.id})}" role="button">Editar</a>
+                        <a class="btn btn-secondary" th:href="@{/admin/dishManager/save/{id}(id=${dish.id})}" role="button">Editar</a>
                     </td>
                     <td class="text-center">
-                        <a class="btn btn-danger" th:href="@{/dishManager/delete/{id}(id=${dish.id})}" role="button"
+                        <a class="btn btn-danger" th:href="@{/admin/dishManager/delete/{id}(id=${dish.id})}" role="button"
                            onclick="return confirm('¿Estás seguro que quieres eliminar este plato?');">Eliminar</a>
                     </td>
                 </tr>

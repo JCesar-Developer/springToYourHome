@@ -1,5 +1,6 @@
 package com.losAmos.demoLosAmos.models.entity;
 
+import org.hibernate.validator.constraints.Length;
 import org.springframework.security.core.GrantedAuthority;
 
 import java.io.Serializable;
@@ -8,6 +9,8 @@ import java.util.Collection;
 import java.util.Optional;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 
 @Entity
@@ -23,14 +26,20 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "Ingrese su nombre.")
     private String name;
 
+    @NotBlank(message = "Ingrese su apellido.")
     private String surname;
 
     @Column(unique = true)
+    @NotBlank(message = "Ingrese su email.")
+    @Email(message = "Ingrese una dirección de email valida.")
     private String email;
 
     @Column(length = 20)
+    @NotBlank(message = "Ingrese una contraseña.")
+    @Length(min = 6, message = "La contraseña debe contener, como mínimo, 6 caracteres.")
     private String password;
 
     private String avatar;

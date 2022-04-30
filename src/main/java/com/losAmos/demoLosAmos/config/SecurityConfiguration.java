@@ -45,7 +45,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
                 //PERMISSION SETTINGS
                 .antMatchers("/", "/login/**", "/register/**", "/js/**", "/css/**", "/images/**").permitAll()
-                .antMatchers("/dishManager/**").hasAnyRole("ADMIN")
+                .antMatchers("/admin/**").hasAnyRole("ADMIN")
+                .antMatchers("/user/**").hasAnyRole("USER")
                 .anyRequest().authenticated()
 
                 //LOGIN CONFIGURATION

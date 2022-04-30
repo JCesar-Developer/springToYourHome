@@ -106,9 +106,6 @@
         </main>
 
         <!-- FOOTER -->
-        <p sec:authorize="isAuthenticated()">
-            Usuario: <span sec:authentication="name"></span> | Rol: <span sec:authentication="principal.authorities"></span>
-        </p>
         <div th:replace="layout/footer :: appFooter"></div>
         <!-- /FOOTER -->
     </div>

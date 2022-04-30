@@ -5,32 +5,37 @@ import com.losAmos.demoLosAmos.models.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.validation.Valid;
 
 @Controller
-@RequestMapping("/register")
 public class UserController {
+
+    //TODO: ¿PUEDE QUE NECESITEMOS MOVER ESTAS FUNCIONES A LOGIN CONTROLLER?
+    //      ¿Y HACER DE USER CONTROLLER ESPECIAL PARA CRUD?
 
     @Autowired
     private UserService userService;
 
-    @ModelAttribute("user")
-    public User returnNewUser(){
-        return new User();
-    }
-
-    @GetMapping
-    public String showRegisterForm(Model model){
+    @GetMapping("/register")
+    public String showRegisterForm(@ModelAttribute User user, Model model){
         model.addAttribute("title", "Registro");
+        model.addAttribute("user", user);
         return "register";
     }
 
-    @PostMapping
-    public String registerUserAccount(@ModelAttribute("user") User user){
+    @PostMapping("/register")
+    public String registerUserAccount(@Valid User user, BindingResult bindingResult){
+
+        if(bindingResult.hasErrors()) {
+            return "register";
+        }
+
         userService.insert(user);
-        return "redirect:/register?ok";
+        return "redirect:/login?ok";
     }
 }
