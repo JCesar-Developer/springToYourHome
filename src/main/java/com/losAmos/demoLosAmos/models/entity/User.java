@@ -53,7 +53,9 @@ public class User implements Serializable {
                     name = "rol_id",referencedColumnName = "id"))
     private Collection<Role> roles;
 
-    // ------------------------------- CONSTRUCTORS ------------------------------- //
+    // ------------------- //
+    // --- CONSTRUCTOR --- //
+    // ------------------ //
 
     //DEFAULT CONSTRUCTOR
     public User() {

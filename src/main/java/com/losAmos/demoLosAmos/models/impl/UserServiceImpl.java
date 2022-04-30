@@ -31,11 +31,13 @@ public class UserServiceImpl implements UserService {
     private BCryptPasswordEncoder passwordEncoder;
 
 
+/*  TODO: ELIMINAR SI LA APP FUNCIONA SIN ESTÁ FUNCIÓN
     // Constructor
     public UserServiceImpl(UserDaoAPI userDaoAPI) {
         super();
         this.userDaoAPI = userDaoAPI;
     }
+*/
 
     /**
      * CREATE METHODE TO USER.
