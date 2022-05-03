@@ -1,6 +1,6 @@
 package com.losAmos.demoLosAmos.controllers;
 
-import com.losAmos.demoLosAmos.models.entity.User;
+import com.losAmos.demoLosAmos.models.entity.UserEntity;
 import com.losAmos.demoLosAmos.models.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,20 +22,20 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/register")
-    public String showRegisterForm(@ModelAttribute User user, Model model){
+    public String showRegisterForm(@ModelAttribute UserEntity userEntity, Model model){
         model.addAttribute("title", "Registro");
-        model.addAttribute("user", user);
+        model.addAttribute("user", userEntity);
         return "register";
     }
 
     @PostMapping("/register")
-    public String registerUserAccount(@Valid User user, BindingResult bindingResult){
+    public String registerUserAccount(@Valid UserEntity userEntity, BindingResult bindingResult){
 
         if(bindingResult.hasErrors()) {
             return "register";
         }
 
-        userService.insert(user);
+        userService.insert(userEntity);
         return "redirect:/login?ok";
     }
 }

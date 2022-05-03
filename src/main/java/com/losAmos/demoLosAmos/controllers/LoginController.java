@@ -29,12 +29,4 @@ public class LoginController {
 
     }
 
-//    @GetMapping("/login/login")
-//    public String login(@RequestParam(value="error", required = false) String error,
-//            Model model, RedirectAttributes flash){
-//
-//        flash.addFlashAttribute("loginSuccess", "");
-//        return "redirect:/";
-//    }
-
 }

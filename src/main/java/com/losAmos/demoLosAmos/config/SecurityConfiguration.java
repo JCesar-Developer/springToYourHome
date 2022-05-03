@@ -1,5 +1,6 @@
 package com.losAmos.demoLosAmos.config;
 
+import com.losAmos.demoLosAmos.models.services.JWTService;
 import com.losAmos.demoLosAmos.models.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -7,8 +8,8 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -20,6 +21,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
+    @Autowired
+    private JWTService jwtService;
 
 /*    @Bean
     public DaoAuthenticationProvider authenticationProvider(){
@@ -43,28 +46,38 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
 
-                //PERMISSION SETTINGS
-                .antMatchers("/", "/login/**", "/register/**", "/js/**", "/css/**", "/images/**").permitAll()
-                .antMatchers("/admin/**").hasAnyRole("ADMIN")
-                .antMatchers("/user/**").hasAnyRole("USER")
-                .anyRequest().authenticated()
+        //PERMISSION SETTINGS
+            .antMatchers("/", "/login/**", "/register/**", "/js/**", "/css/**", "/images/**").permitAll()
+            .antMatchers().permitAll()
+            .antMatchers("/admin/**", "/api/dishes/**", "/api/admin/dishes/**").hasAnyRole("ADMIN")
+            .antMatchers("/user/**", "/api/user/dishes/**").hasAnyRole("USER")
+            .anyRequest().authenticated()
 
-                //LOGIN CONFIGURATION
-                .and()
-                    .formLogin().loginPage("/login").permitAll()
-                    .defaultSuccessUrl("/?loginSuccess", true)
+        //UNCOMMENT THESE LINES WHEN YOU WANTED TO WORK WITH THE JPA_API
+        /*
+            //LOGIN CONFIGURATION
+            .and()
+                .formLogin().loginPage("/login").permitAll()
+                .defaultSuccessUrl("/?loginSuccess", true)
 
-                //LOGOUT CONFIGURATION
-                .and()
-                    .logout().invalidateHttpSession(true).clearAuthentication(true)
-                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                    .logoutSuccessUrl("/?logoutSuccess").permitAll()
+            //LOGOUT CONFIGURATION
+            .and()
+                .logout().invalidateHttpSession(true).clearAuthentication(true)
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/?logoutSuccess").permitAll()
 
-                //ERROR 403 CONFIGURATION
-                .and()
-                .exceptionHandling().accessDeniedPage("/error_403");
+            //ERROR 403 CONFIGURATION
+            .and()
+            .exceptionHandling().accessDeniedPage("/error_403")
+         */
+
+        //UNCOMMENT THESE LINES WHEN YOU WANTED TO WORK WITH THE RESTFULAPI
+            .and()
+            .addFilter(new JWTAuthenticationFilter(authenticationManager(), jwtService))
+            .addFilter(new JWTAuthorizationFilter(authenticationManager(), jwtService))
+            .csrf().disable()
+            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
     }
 
 }
-

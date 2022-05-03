@@ -1,7 +1,7 @@
 package com.losAmos.demoLosAmos.models.impl;
 
 import com.losAmos.demoLosAmos.models.entity.Role;
-import com.losAmos.demoLosAmos.models.entity.User;
+import com.losAmos.demoLosAmos.models.entity.UserEntity;
 import com.losAmos.demoLosAmos.models.repository.UserDaoAPI;
 
 import com.losAmos.demoLosAmos.models.services.UserService;
@@ -41,11 +41,11 @@ public class UserServiceImpl implements UserService {
 
     /**
      * CREATE METHODE TO USER.
-     * @param newUser
+     * @param newUserEntity
      * @return boolean
      */
     @Override
-    public User insert(User newUser){
+    public UserEntity insert(UserEntity newUserEntity){
 
         //PULLING ROLE_USER FROM THE DATABASE
         Role roleUser = roleService.getOne(2L);
@@ -53,10 +53,10 @@ public class UserServiceImpl implements UserService {
         roles.add(roleUser);
 
         //INSERTING THE NEW USER ON THE DATABASE
-        User user = new User(newUser.getName(), newUser.getSurname(), newUser.getEmail(),
-                passwordEncoder.encode(newUser.getPassword()), roles);
+        UserEntity userEntity = new UserEntity(newUserEntity.getName(), newUserEntity.getSurname(), newUserEntity.getEmail(),
+                passwordEncoder.encode(newUserEntity.getPassword()), roles);
 
-        return userDaoAPI.save(user);
+        return userDaoAPI.save(userEntity);
 
     }
 
@@ -68,14 +68,14 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        User user = userDaoAPI.findByEmail(email);
+        UserEntity userEntity = userDaoAPI.findByEmail(email);
 
-        if(user == null){
+        if(userEntity == null){
             throw new UsernameNotFoundException("El email o la contraseña no son correctos");
         }
 
-        return new org.springframework.security.core.userdetails.User(user.getEmail(),
-                user.getPassword(), mapAuthoritiesToRoles(user.getRoles()));
+        return new org.springframework.security.core.userdetails.User(userEntity.getEmail(),
+                userEntity.getPassword(), mapAuthoritiesToRoles(userEntity.getRoles()));
 
     }
 

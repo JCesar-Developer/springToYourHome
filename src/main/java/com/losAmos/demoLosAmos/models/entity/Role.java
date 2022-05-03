@@ -18,7 +18,7 @@ public class Role implements Serializable {
     private String name;
 
     @ManyToMany(mappedBy = "roles")
-    private Collection<User> users;
+    private Collection<UserEntity> userEntities;
 
 
     // Constructor

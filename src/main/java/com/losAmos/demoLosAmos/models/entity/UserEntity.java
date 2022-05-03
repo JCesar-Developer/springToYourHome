@@ -1,12 +1,9 @@
 package com.losAmos.demoLosAmos.models.entity;
 
 import org.hibernate.validator.constraints.Length;
-import org.springframework.security.core.GrantedAuthority;
 
 import java.io.Serializable;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.Optional;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -15,7 +12,7 @@ import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "users",uniqueConstraints = @UniqueConstraint(columnNames = "email"))
-public class User implements Serializable {
+public class UserEntity implements Serializable {
 
     private static final long serialVersion = 1L;
 
@@ -58,11 +55,11 @@ public class User implements Serializable {
     // ------------------ //
 
     //DEFAULT CONSTRUCTOR
-    public User() {
+    public UserEntity() {
     }
 
     //CONSTRUCTOR WITH ARGUMENTS WITHOUT ID
-    public User(String name, String surname, String email, String password, Collection<Role> roles) {
+    public UserEntity(String name, String surname, String email, String password, Collection<Role> roles) {
         this.name = name;
         this.surname = surname;
         this.email = email;
@@ -71,7 +68,7 @@ public class User implements Serializable {
     }
 
     //CONSTRUC
-    public User(String name, String surname, String email, String password, String avatar) {
+    public UserEntity(String name, String surname, String email, String password, String avatar) {
         this.id = id;
         this.name = name;
         this.surname = surname;
