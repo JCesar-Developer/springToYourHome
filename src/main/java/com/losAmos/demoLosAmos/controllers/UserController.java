@@ -28,6 +28,19 @@ public class UserController {
         return "register";
     }
 
+    @GetMapping("/user/myaccount")
+    public String getMyAccount(@ModelAttribute User user, Model model){
+        model.addAttribute("title", "Mi Cuenta");
+        model.addAttribute("user", user);
+        return "myaccount";
+    }
+    @GetMapping("/admin/myaccount")
+    public String getAdminAccount(@ModelAttribute User user, Model model){
+        model.addAttribute("title", "Mi Cuenta");
+        model.addAttribute("user", user);
+        return "myaccount";
+    }
+
     @PostMapping("/register")
     public String registerUserAccount(@Valid User user, BindingResult bindingResult){
 

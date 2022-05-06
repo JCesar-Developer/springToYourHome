@@ -51,9 +51,16 @@
                     <!-- Right elements -->
                     <div class="d-flex align-items-center">
                         <!-- Icon -->
-                        <a class="text-reset me-3" href="#">
-                            <i class="fas fa-shopping-cart"></i>
-                        </a>
+                        <div sec:authorize="hasRole('ROLE_USER')" class="dropdown">
+                            <a class="text-reset me-3" href="/user/cart">
+                                <i class="fas fa-shopping-cart"></i>
+                            </a>
+                        </div>
+                        <div sec:authorize="hasRole('ROLE_ADMIN')" class="dropdown">
+                            <a class="text-reset me-3" href="/admin/cart">
+                                <i class="fas fa-shopping-cart"></i>
+                            </a>
+                        </div>
 
                         <div sec:authorize="!isAuthenticated()" class="dropdown">
                             <a class="text-reset me-3 " href="/login" role="button">
@@ -83,10 +90,10 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatarUser">
                                 <li>
-                                    <a class="dropdown-item" href="#">Perfil</a>
+                                    <a class="dropdown-item" href="/user/myaccount">Perfil</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="#">Historial de Pedidos</a>
+                                    <a class="dropdown-item" href="/user/order_history">Historial de Pedidos</a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item" href="#">Configuración</a>
@@ -105,10 +112,10 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatarAdmin">
                                 <li>
-                                    <a class="dropdown-item" href="#">Perfil</a>
+                                    <a class="dropdown-item" href="/admin/myaccount">Perfil</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="#">Historial de Ventas</a>
+                                    <a class="dropdown-item" href="/admin/order_history">Historial de Ventas</a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item" href="#">Configuración</a>

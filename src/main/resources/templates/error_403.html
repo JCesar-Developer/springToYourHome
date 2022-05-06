@@ -8,26 +8,41 @@
     <div th:replace="layout/head :: head"></div>
     <!-- END HEAD -->
 </head>
-<body>
-
-    <div class="container py-5">
-        <div class="card bg-danger text-white">
-
-            <div class="card-header">
-                Error: ¡Acceso denegado!
-            </div>
-            <div class="card-body">
-                <h5> Lo sentimos <span th:text="${#httpServletRequest.remoteUser}"></span>.</h5>
-                <h5>No tienes permisos para acceder a este recurso.</h5> 
-                <a th:href="@{/index}" class="btn btn-outline-light" role="button">Ir al inicio</a>
-            </div>
-
+<body class="bg_error403">
+    <div class="maincontainer">
+        <div class="bat">
+            <img class="wing leftwing"
+                 src="https://www.blissfullemon.com/wp-content/uploads/2018/09/bat-wing.png">
+            <img class="body"
+                 src="https://www.blissfullemon.com/wp-content/uploads/2018/09/bat-body.png" alt="bat">
+            <img class="wing rightwing"
+                 src="https://www.blissfullemon.com/wp-content/uploads/2018/09/bat-wing.png">
         </div>
-    </div>
+        <div class="bat">
+            <img class="wing leftwing"
+                 src="https://www.blissfullemon.com/wp-content/uploads/2018/09/bat-wing.png">
+            <img class="body"
+                 src="https://www.blissfullemon.com/wp-content/uploads/2018/09/bat-body.png" alt="bat">
+            <img class="wing rightwing"
+                 src="https://www.blissfullemon.com/wp-content/uploads/2018/09/bat-wing.png">
+        </div>
+        <div class="bat">
+            <img class="wing leftwing"
+                 src="https://www.blissfullemon.com/wp-content/uploads/2018/09/bat-wing.png">
+            <img class="body"
+                 src="https://www.blissfullemon.com/wp-content/uploads/2018/09/bat-body.png" alt="bat">
+            <img class="wing rightwing"
+                 src="https://www.blissfullemon.com/wp-content/uploads/2018/09/bat-wing.png">
+        </div>
+        <img class="foregroundimg" src="https://www.blissfullemon.com/wp-content/uploads/2018/09/HauntedHouseForeground.png" alt="haunted house">
 
-    <!-- FOOTER -->
-    <div th:replace="layout/footer :: appFooter"></div>
-    <!-- END FOOTER -->
+    </div>
+    <h1 class="errorcode">ERROR 403</h1>
+    <div class="errortext">
+        <h6>Lo sentimos <span th:text="${#httpServletRequest.remoteUser}"></span>.</h6>
+        <h6>No tienes permisos para acceder a este recurso.</h6>
+        <a th:href="@{/index}" class="btn btn-outline-light" role="button">Ir al inicio</a>
+    </div>
 
 </body>
 </html>

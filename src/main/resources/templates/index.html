@@ -19,7 +19,7 @@
             <!-- ALERTS MESSAGES  -->
             <div th:if="${param.loginSuccess}">
                 <div class="alert alert-success alert-dismissible fade show d-flex justify-content-center">
-                    <p>Se ha iniciado sesión correctamente. ¡¡¡Bienvenido <span sec:authentication="name"></span>!!!</p>
+                    <p class="m-0">Se ha iniciado sesión correctamente. ¡¡¡Bienvenido <span sec:authentication="name"></span>!!!</p>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             </div>
@@ -31,7 +31,7 @@
             </div>
             <div th:if="${param.logoutSuccess}">
                 <div class="alert alert-warning alert-dismissible fade show d-flex justify-content-center">
-                    La sesión ha finalizado correctamente.
+                    <p class="m-0">La sesión ha finalizado correctamente.</p>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             </div>

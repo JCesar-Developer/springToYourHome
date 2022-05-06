@@ -18,11 +18,11 @@ public class LoginController {
         model.addAttribute("title", "Login");
 
         if( principal != null ) {
-            flash.addFlashAttribute("info", "Error: Ya hay una sesión actualmente inicializada.");
+            flash.addFlashAttribute("info", "Ya hay una sesión actualmente inicializada.");
             return "redirect:/";
         }
         if ( error != null ) {
-            model.addAttribute("error", "Error: Nombre de usuario o contraseña incorrecta, por favor, vuelva a intentarlo.");
+            model.addAttribute("error", "Nombre de usuario o contraseña incorrecta. Inténtelo de nuevo.");
         }
 
         return "login";
