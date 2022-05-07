@@ -77,7 +77,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .exceptionHandling().accessDeniedPage("/error_403")
          */
 
-        //UNCOMMENT THESE LINES WHEN YOU WANTED TO WORK WITH THE RESTFULAPI
+        //AUTHENTIFICATION METHODE
             .and()
             .addFilter(new JWTAuthenticationFilter(authenticationManager(), jwtService))
             .addFilter(new JWTAuthorizationFilter(authenticationManager(), jwtService))

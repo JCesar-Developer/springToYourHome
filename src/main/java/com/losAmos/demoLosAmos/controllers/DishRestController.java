@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/dishes")
 public class DishRestController {
 
     @Autowired
@@ -25,7 +25,7 @@ public class DishRestController {
     }
 
     // ------------------------- READ ------------------------- //
-    @GetMapping(value = "/open/getOne/{id}")
+    @GetMapping(value = "/user/getOne/{id}")
     public Dish dishesRESTGetOne(@PathVariable Long id) {
         return dishAPI.getOne(id);
     }
