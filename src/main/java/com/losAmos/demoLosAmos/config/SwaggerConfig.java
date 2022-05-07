@@ -11,8 +11,6 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import static springfox.documentation.builders.PathSelectors.regex;
-
-
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
@@ -22,7 +20,8 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.any())
-                .paths(PathSelectors.any())
+                .paths(PathSelectors.ant("/api/**"))
+                //.paths(PathSelectors.any())
                 //.paths(regex("/api."))
                 .build()
                 .apiInfo(getInfo());
@@ -32,7 +31,7 @@ public class SwaggerConfig {
         return new ApiInfoBuilder()
                 .title("Los Amos del BackEnd")
                 .description("APIS REST de los amos del BACK END")
-                .license("propiedad de los amos del backend")
+                .license("Propiedad de los amos del backend")
                 .build();
     }
 

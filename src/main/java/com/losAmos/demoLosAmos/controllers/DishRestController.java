@@ -12,7 +12,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-@Api(value="", tags="DISHES API REST")
 public class DishRestController {
 
     @Autowired
